@@ -2,6 +2,7 @@
 	"name":        "sidroberts/phalcon-cron",
 	"description": "Cron component for Phalcon.",
 	"type":        "library",
+	"license":     "MIT",
 	
 	"authors": [
 		{
