@@ -7,27 +7,27 @@ use Sid\Phalcon\Cron\Exception as CronException;
 class Phalcon extends \Sid\Phalcon\Cron\Job
 {
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	protected $task;
 	
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	protected $action;
 	
 	/**
-	 * @var array
+	 * @var array|null
 	 */
 	protected $params;
 	
 	
 	
 	/**
-	 * @param string $expression
-	 * @param string $task
-	 * @param string $action
-	 * @param array  $params
+	 * @param string      $expression
+	 * @param string|null $task
+	 * @param string|null $action
+	 * @param array|null  $params
 	 */
 	public function __construct($expression, $task = null, $action = null, $params = null)
 	{
@@ -50,7 +50,7 @@ class Phalcon extends \Sid\Phalcon\Cron\Job
 	
 	
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getTask()
 	{
@@ -58,7 +58,7 @@ class Phalcon extends \Sid\Phalcon\Cron\Job
 	}
 	
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getAction()
 	{
@@ -66,7 +66,7 @@ class Phalcon extends \Sid\Phalcon\Cron\Job
 	}
 	
 	/**
-	 * @return array
+	 * @return array|null
 	 */
 	public function getParams()
 	{

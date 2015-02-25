@@ -19,7 +19,6 @@ class System extends \Sid\Phalcon\Cron\Job
 	/**
 	 * @param string $expression
 	 * @param string $command
-	 * @param string $user
 	 * @param string $output
 	 */
 	public function __construct($expression, $command, $output = null)
