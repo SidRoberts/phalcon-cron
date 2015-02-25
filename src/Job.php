@@ -36,7 +36,7 @@ abstract class Job extends \Phalcon\Di\Injectable
 	 * 
 	 * @return boolean
 	 */
-	public function isDue($datetime = null)
+	public function isDue($datetime = "now")
 	{
 		return \Cron\CronExpression::factory($this->getExpression())->isDue($datetime);
 	}
