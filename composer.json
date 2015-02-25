@@ -1,0 +1,43 @@
+{
+	"name":        "sidroberts/phalcon-cron",
+	"description": "Cron component for Phalcon.",
+	"type":        "library",
+	
+	"authors": [
+		{
+			"name":     "Sid Roberts",
+			"email":    "Sid@SidRoberts.co.uk",
+			"homepage": "http://www.SidRoberts.co.uk",
+			"role":     "Developer"
+		}
+	],
+	
+	"support": {
+		"source": "https://www.GitHub.com/SidRoberts/Phalcon-Cron",
+		"issues": "https://www.GitHub.com/SidRoberts/Phalcon-Cron/issues",
+		"wiki":   "https://www.GitHub.com/SidRoberts/Phalcon-Cron/wiki"
+	},
+	
+	
+	
+	"require": {
+		"php": ">= 5.4",
+		
+		"ext-phalcon": ">= 1.3.4",
+		
+		"mtdowling/cron-expression": "~1.0"
+	},
+	
+	"require-dev": {
+		"codeception/codeception": "~2.0",
+		"phpunit/php-code-coverage": "~2.0"
+	},
+	
+	
+	
+	"autoload": {
+		"psr-4": {
+			"Sid\\Phalcon\\Cron\\": "src/"
+		}
+	}
+}
