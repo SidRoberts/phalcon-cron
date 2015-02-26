@@ -1,0 +1,3 @@
+@hourly sh purge-cache.sh
+
+* 0 * * * sh backup.sh

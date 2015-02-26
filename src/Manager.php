@@ -26,6 +26,18 @@ class Manager
 		$this->jobs[] = $job;
 	}
 	
+	/**
+	 * @param string $filename
+	 */
+	public function addCrontab($filename)
+	{
+		$crontab = new CrontabParser($filename);
+		
+		foreach ($crontab->getJobs() as $job) {
+			$this->add($job);
+		}
+	}
+	
 	
 	
 	/**
@@ -45,6 +57,16 @@ class Manager
 		);
 		
 		return $jobs;
+	}
+	
+	
+	
+	/**
+	 * @return array
+	 */
+	public function getAllJobs()
+	{
+		return $this->jobs;
 	}
 	
 	

@@ -133,3 +133,27 @@ $datetime = new \DateTime("2015-01-01 00:00:00");
 
 $cron->runInBackground($datetime);
 ```
+
+
+
+### Adding Jobs From A Crontab ###
+
+You can also add jobs from a Crontab file, such as this one:
+
+```
+* * * * * /usr/bin/php /path/to/cli.php cron
+```
+
+```php
+$cron = new \Sid\Phalcon\Cron();
+
+$cron->addCrontab("/path/to/crontab");
+```
+
+To get an array of System Job instances from the Crontab:
+
+```php
+$crontab = new \Sid\Phalcon\Cron\CronParser("/path/to/crontab");
+
+$jobs = $crontab->getJobs();
+```

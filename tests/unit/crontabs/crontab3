@@ -1,0 +1,5 @@
+@hourly sh purge-cache.sh
+
+* 0 * * * sh backup.sh
+
+0,30 1-12 * mon,wed,fri * php something.php

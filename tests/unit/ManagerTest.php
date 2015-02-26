@@ -95,4 +95,21 @@ class ManagerTest extends \Codeception\TestCase\Test
         $this->assertFalse($processes[0]->isRunning());
         $this->assertFalse($processes[1]->isRunning());
     }
+    
+    public function testAddJobsFromCrontab()
+    {
+        $cron = new \Sid\Phalcon\Cron\Manager();
+        
+        $cron->addCrontab(__DIR__ . "/crontabs/crontab2");
+        
+        $jobs = $cron->getAllJobs();
+        
+        $this->assertEquals(count($jobs), 2);
+        
+        $this->assertEquals($jobs[0]->getExpression(), "@hourly");
+        $this->assertEquals($jobs[0]->getCommand(), "sh purge-cache.sh");
+        
+        $this->assertEquals($jobs[1]->getExpression(), "* 0 * * *");
+        $this->assertEquals($jobs[1]->getCommand(), "sh backup.sh");
+    }
 }
