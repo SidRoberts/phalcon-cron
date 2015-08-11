@@ -52,10 +52,10 @@ $di->set(
 		$cron->add(
 			new \Sid\Phalcon\Cron\Job\Phalcon(
 				"0 * * * *",
-				"task",
-				"action",
 				[
-					"params"
+					"task"   => "task",
+					"action" => "action",
+					"params" => "params"
 				]
 			)
 		);

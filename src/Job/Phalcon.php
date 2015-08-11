@@ -7,29 +7,17 @@ use Sid\Phalcon\Cron\Exception as CronException;
 class Phalcon extends \Sid\Phalcon\Cron\Job
 {
 	/**
-	 * @var string|null
-	 */
-	protected $task;
-	
-	/**
-	 * @var string|null
-	 */
-	protected $action;
-	
-	/**
 	 * @var array|null
 	 */
-	protected $params;
+	protected $body;
 	
 	
 	
 	/**
-	 * @param string      $expression
-	 * @param string|null $task
-	 * @param string|null $action
-	 * @param array|null  $params
+	 * @param string     $expression
+	 * @param array|null $body
 	 */
-	public function __construct($expression, $task = null, $action = null, $params = null)
+	public function __construct($expression, $body = null)
 	{
 		$di = $this->getDI();
 		if (!($di instanceof \Phalcon\DiInterface)) {
@@ -42,35 +30,17 @@ class Phalcon extends \Sid\Phalcon\Cron\Job
 		
 		
 		
-		$this->task   = $task;
-		$this->action = $action;
-		$this->params = $params;
+		$this->body = $body;
 	}
 	
 	
-	
-	/**
-	 * @return string|null
-	 */
-	public function getTask()
-	{
-		return $this->task;
-	}
-	
-	/**
-	 * @return string|null
-	 */
-	public function getAction()
-	{
-		return $this->action;
-	}
 	
 	/**
 	 * @return array|null
 	 */
-	public function getParams()
+	public function getBody()
 	{
-		return $this->params;
+		return $this->body;
 	}
 	
 	
@@ -83,11 +53,7 @@ class Phalcon extends \Sid\Phalcon\Cron\Job
 		ob_start();
 		
 		$this->getDI()->get("console")->handle(
-			[
-				"task"   => $this->getTask(),
-				"action" => $this->getAction(),
-				"params" => $this->getParams()
-			]
+			$this->getBody()
 		);
 		
 		$contents = ob_get_contents();
