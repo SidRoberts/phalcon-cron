@@ -145,7 +145,7 @@ You can also add jobs from a Crontab file, such as this one:
 ```
 
 ```php
-$cron = new \Sid\Phalcon\Cron();
+$cron = new \Sid\Phalcon\Cron\Manager();
 
 $cron->addCrontab("/path/to/crontab");
 ```
