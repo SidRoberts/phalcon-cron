@@ -5,6 +5,7 @@ Cron component for Phalcon.
 
 
 
+[![Build Status](https://travis-ci.org/SidRoberts/phalcon-cron.svg)](https://travis-ci.org/SidRoberts/phalcon-cron)
 [![Build Status](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/badges/build.png?b=master)](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/?branch=master)
 
