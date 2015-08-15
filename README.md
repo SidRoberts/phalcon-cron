@@ -153,7 +153,7 @@ $cron->addCrontab("/path/to/crontab");
 To get an array of System Job instances from the Crontab:
 
 ```php
-$crontab = new \Sid\Phalcon\Cron\CronParser("/path/to/crontab");
+$crontab = new \Sid\Phalcon\Cron\CrontabParser("/path/to/crontab");
 
 $jobs = $crontab->getJobs();
 ```
