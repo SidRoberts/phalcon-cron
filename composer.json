@@ -30,7 +30,7 @@
 	},
 	
 	"require-dev": {
-		"codeception/codeception": "~2.0",
+		"codeception/codeception": "2.1.2",
 		"phpunit/php-code-coverage": "~2.0"
 	},
 	
