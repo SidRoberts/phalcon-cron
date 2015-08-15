@@ -9,10 +9,19 @@ sudo: false
 
 install:
   - bash install_phalcon.sh 2.0.6
-  - composer update
+  - composer update --dev
 
 script:
-  - php vendor/bin/codecept run unit
+  - php vendor/bin/codecept run unit --coverage --coverage-xml
+
+after_script:
+  - mkdir -p build/logs
+  - mv tests/_output/coverage.xml build/logs/clover.xml
+  - php vendor/bin/test-reporter
+
+addons:
+  code_climate:
+    repo_token: 558a4a5108bf15fedffb7884bc47fae17ae2fcb7db7e4a5de8a4f5ff22858938
 
 notifications:
   email:

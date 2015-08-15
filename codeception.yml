@@ -22,4 +22,5 @@ coverage:
             - src/*
     blacklist:
         include:
+            - tests/*
             - vendor/*
