@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+
+sudo: false
+
+install:
+  - bash install_phalcon.sh 2.0.6
+  - composer update
+
+script:
+  - php vendor/bin/codecept run unit
+
+notifications:
+  email:
+    - sid@sidroberts.co.uk

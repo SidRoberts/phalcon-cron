@@ -36,12 +36,14 @@ class PhalconTest extends \Codeception\TestCase\Test
                 $cron->add(
                     new \Sid\Phalcon\Cron\Job\Phalcon(
                         "* * * * *",
-                        "task",
-                        "action",
                         [
-                            "param1",
-                            "param2",
-                            "param3"
+                            "task"   => "task",
+                            "action" => "action",
+                            "params" => [
+                                "param1",
+                                "param2",
+                                "param3"
+                            ]
                         ]
                     )
                 );
@@ -82,9 +84,15 @@ class PhalconTest extends \Codeception\TestCase\Test
         $job = $jobs[0];
         
         $this->assertEquals($job->getExpression(), "* * * * *");
-        $this->assertEquals($job->getTask(), "task");
-        $this->assertEquals($job->getAction(), "action");
-        $this->assertEquals($job->getParams(), ["param1", "param2", "param3"]);
+
+        $this->assertEquals(
+            $job->getBody(),
+            [
+                "task"   => "task",
+                "action" => "action",
+                "params" => ["param1", "param2", "param3"]
+            ]
+        );
     }
     
     
