@@ -5,7 +5,7 @@ Cron component for Phalcon.
 
 
 
-[![Build Status](https://travis-ci.org/SidRoberts/phalcon-cron.svg)](https://travis-ci.org/SidRoberts/phalcon-cron)
+[![Build Status](https://travis-ci.org/SidRoberts/phalcon-cron.svg?branch=master)](https://travis-ci.org/SidRoberts/phalcon-cron)
 [![Build Status](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/badges/build.png?b=master)](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SidRoberts/phalcon-cron/?branch=master)
 
@@ -80,7 +80,7 @@ class CronTask extends \Phalcon\Cli\Task
 {
 	public function mainAction()
 	{
-		$this->getDI()->get("cron")->runInBackground();
+		$this->cron->runInBackground();
 	}
 }
 ```
@@ -109,7 +109,7 @@ For most applications it is recommended to use `->runInBackground()` as this is 
 
 ## Waiting, Terminating And Killing ##
 
-By default all background processes register a [shutdown function](http://php.net/manual/en/function.register-shutdown-function.php) that forces the PHP script to wait for job to complete before shutting down. You can call `->wait()` on a Process and .
+By default all background processes register a [shutdown function](http://php.net/manual/en/function.register-shutdown-function.php) that forces the PHP script to wait for job to complete before shutting down. You can call `->wait()` on a Process instance if you need to wait until it has finished.
 
 You can also use `->terminate()` and `->kill()` on a Process to send terminate and kill signals.
 
@@ -119,7 +119,7 @@ You can also use `->terminate()` and `->kill()` on a Process to send terminate a
 
 ## Running Jobs At A Custom Time ##
 
-You can see which Jobs are due at a particular time by passing a \DateTime to `->getDueJobs()`:
+You can see which Jobs are due at a particular time by passing a `\DateTime` to `->getDueJobs()`:
 
 ```php
 $datetime = new \DateTime("2015-01-01 00:00:00");
