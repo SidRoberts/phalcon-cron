@@ -52,7 +52,7 @@ class Manager
 		$jobs = array_filter(
 			$jobs,
 			function ($job) use ($now) {
-				return $job->isDue($now);
+				return $now===null ? $job->isDue() : $job->isDue($now);
 			}
 		);
 		
