@@ -25,6 +25,23 @@ Install using Composer:
 }
 ```
 
+You'll also need to add the `console` to the DI:
+
+```php
+$di = new \Phalcon\Di();
+
+// ...
+
+$console = new \Phalcon\Cli\Console();
+
+// ...
+
+$di->setShared("console", $console);
+
+// ...
+
+$console->handle($arguments);
+```
 
 
 ## Example ##
