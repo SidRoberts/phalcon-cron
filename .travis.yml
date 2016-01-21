@@ -9,7 +9,7 @@ sudo: false
 
 install:
   - bash install_phalcon.sh 2.0.6
-  - composer update --dev
+  - composer update --dev --quiet
 
 script:
   - php vendor/bin/codecept run unit --coverage --coverage-xml
