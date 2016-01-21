@@ -2,26 +2,26 @@
 
 namespace Sid\Phalcon\Cron\Job;
 
-use Sid\Phalcon\Cron\Exception as CronException;
-
 class Phalcon extends \Sid\Phalcon\Cron\Job
 {
 	/**
 	 * @var array|null
 	 */
 	protected $body;
-	
-	
-	
+
+
+
 	/**
 	 * @param string     $expression
 	 * @param array|null $body
+	 *
+	 * @throws Exception
 	 */
 	public function __construct($expression, $body = null)
 	{
 		$di = $this->getDI();
 		if (!($di instanceof \Phalcon\DiInterface)) {
-			throw new CronException("A dependency injection object is required to access internal services");
+			throw new Exception("A dependency injection object is required to access internal services");
 		}
 		
 		

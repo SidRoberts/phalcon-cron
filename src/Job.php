@@ -40,20 +40,25 @@ abstract class Job extends \Phalcon\Di\Injectable
 	{
 		return \Cron\CronExpression::factory($this->getExpression())->isDue($datetime);
 	}
-	
-	
-	
+
+
+
+	/**
+	 * @return mixed
+	 */
 	abstract public function runInForeground();
-	
+
 	/**
 	 * @return Process
+	 *
+	 * @throws Exception
 	 */
 	public function runInBackground()
 	{
 		$processID = pcntl_fork();
 		
 		if ($processID == -1) {
-			throw new CronException("Failed to fork process.");
+			throw new Exception("Failed to fork process.");
 		}
 		
 		// This is the child process.

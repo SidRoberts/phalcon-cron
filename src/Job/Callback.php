@@ -2,8 +2,6 @@
 
 namespace Sid\Phalcon\Cron\Job;
 
-use Sid\Phalcon\Cron\Exception as CronException;
-
 class Callback extends \Sid\Phalcon\Cron\Job
 {
 	/**

@@ -8,11 +8,12 @@ class CrontabParser
 	 * @var string
 	 */
 	protected $filename;
-	
-	
-	
+
+
 	/**
 	 * @param string $filename
+	 *
+	 * @throws Exception
 	 */
 	public function __construct($filename)
 	{
