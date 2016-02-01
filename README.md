@@ -17,7 +17,7 @@ Cron component for Phalcon.
 
 Install using Composer:
 
-```
+```json
 {
 	"require": {
 		"sidroberts/phalcon-cron": "dev-master"
