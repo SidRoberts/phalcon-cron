@@ -64,7 +64,7 @@ abstract class Job extends \Phalcon\Di\Injectable
 		// This is the child process.
 		if ($processID == 0) {
 			// @codeCoverageIgnoreStart
-			$this->runInForeground();
+			echo $this->runInForeground();
 			
 			exit(0);
 			// @codeCoverageIgnoreEnd
