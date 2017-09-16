@@ -2,6 +2,8 @@
 
 namespace Sid\Phalcon\Cron;
 
+use Sid\Phalcon\Cron\Job\System as SystemJob;
+
 class CrontabParser
 {
     /**
@@ -40,7 +42,7 @@ class CrontabParser
 
         foreach ($lines as $line) {
             if (preg_match("/^(\@\w+|[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+)\s+(.*)$/", $line, $matches)) {
-                $jobs[] = new Job\System($matches[1], $matches[2]);
+                $jobs[] = new SystemJob($matches[1], $matches[2]);
             }
         }
 

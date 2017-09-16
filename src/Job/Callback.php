@@ -2,7 +2,9 @@
 
 namespace Sid\Phalcon\Cron\Job;
 
-class Callback extends \Sid\Phalcon\Cron\Job
+use Sid\Phalcon\Cron\Job;
+
+class Callback extends Job
 {
     /**
      * @var callable

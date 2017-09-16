@@ -2,11 +2,14 @@
 
 namespace Sid\Phalcon\Cron\Tests;
 
-class CrontabParserTest extends \Codeception\TestCase\Test
+use Codeception\TestCase\Test;
+use Sid\Phalcon\Cron\CrontabParser;
+
+class CrontabParserTest extends Test
 {
     public function testOne()
     {
-        $crontab1 = new \Sid\Phalcon\Cron\CrontabParser(__DIR__ . "/crontabs/crontab1");
+        $crontab1 = new CrontabParser(__DIR__ . "/crontabs/crontab1");
 
         $jobs = $crontab1->getJobs();
 
@@ -20,7 +23,7 @@ class CrontabParserTest extends \Codeception\TestCase\Test
 
     public function testTwo()
     {
-        $crontab2 = new \Sid\Phalcon\Cron\CrontabParser(__DIR__ . "/crontabs/crontab2");
+        $crontab2 = new CrontabParser(__DIR__ . "/crontabs/crontab2");
 
         $jobs = $crontab2->getJobs();
 
@@ -35,7 +38,7 @@ class CrontabParserTest extends \Codeception\TestCase\Test
 
     public function testThree()
     {
-        $crontab3 = new \Sid\Phalcon\Cron\CrontabParser(__DIR__ . "/crontabs/crontab3");
+        $crontab3 = new CrontabParser(__DIR__ . "/crontabs/crontab3");
 
         $jobs = $crontab3->getJobs();
 

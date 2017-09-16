@@ -2,14 +2,20 @@
 
 namespace Sid\Phalcon\Cron\Tests;
 
-class ManagerTest extends \Codeception\TestCase\Test
+use Codeception\TestCase\Test;
+use Sid\Phalcon\Cron\Manager;
+use Sid\Phalcon\Cron\Job\Phalcon as PhalconJob;
+use Sid\Phalcon\Cron\Job\System as SystemJob;
+use Sid\Phalcon\Cron\Job\Callback as CallbackJob;
+
+class ManagerTest extends Test
 {
     public function testAddJobsToCron()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
 
-        $cronJob1 = new \Sid\Phalcon\Cron\Job\Phalcon("* * * * *", "task", "action", "params");
-        $cronJob2 = new \Sid\Phalcon\Cron\Job\System("* * * * *", "echo 'hello world'");
+        $cronJob1 = new PhalconJob("* * * * *", "task", "action", "params");
+        $cronJob2 = new SystemJob("* * * * *", "echo 'hello world'");
 
         $this->assertEquals(count($cron->getDueJobs()), 0);
 
@@ -26,9 +32,9 @@ class ManagerTest extends \Codeception\TestCase\Test
 
     public function testCronJobsInBackground()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
 
-        $systemCronJob = new \Sid\Phalcon\Cron\Job\System("* * * * *", "sleep 1", null, "/dev/null");
+        $systemCronJob = new SystemJob("* * * * *", "sleep 1", null, "/dev/null");
 
         $cron->add($systemCronJob);
 
@@ -43,16 +49,16 @@ class ManagerTest extends \Codeception\TestCase\Test
 
     public function testTerminateBackgroundCronJobs()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
 
-        $systemCronJob = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob = new SystemJob(
             "* * * * *",
             "sleep 2",
             null,
             "/dev/null"
         );
 
-        $callbackCronJob = new \Sid\Phalcon\Cron\Job\Callback(
+        $callbackCronJob = new CallbackJob(
             "* * * * *",
             function () {
                 sleep(2);
@@ -75,16 +81,16 @@ class ManagerTest extends \Codeception\TestCase\Test
 
     public function testKillBackgroundCronJobs()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
 
-        $systemCronJob = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob = new SystemJob(
             "* * * * *",
             "sleep 2",
             null,
             "/dev/null"
         );
 
-        $callbackCronJob = new \Sid\Phalcon\Cron\Job\Callback(
+        $callbackCronJob = new CallbackJob(
             "* * * * *",
             function () {
                 sleep(2);
@@ -107,7 +113,7 @@ class ManagerTest extends \Codeception\TestCase\Test
 
     public function testAddJobsFromCrontab()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
 
         $cron->addCrontab(__DIR__ . "/crontabs/crontab2");
 

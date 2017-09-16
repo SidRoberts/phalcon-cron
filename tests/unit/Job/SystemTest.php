@@ -2,11 +2,15 @@
 
 namespace Sid\Phalcon\Cron\Tests\Job;
 
-class SystemTest extends \Codeception\TestCase\Test
+use Codeception\TestCase\Test;
+use Sid\Phalcon\Cron\Manager;
+use Sid\Phalcon\Cron\Job\System as SystemJob;
+
+class SystemTest extends Test
 {
     public function testRunInForeground()
     {
-        $cronJob = new \Sid\Phalcon\Cron\Job\System(
+        $cronJob = new SystemJob(
             "* * * * *",
             "echo 'hello world'"
         );
@@ -23,7 +27,7 @@ class SystemTest extends \Codeception\TestCase\Test
 
     public function testSystemCronJobWithOutputToDevNull()
     {
-        $systemCronJob = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob = new SystemJob(
             "* * * * *",
             "echo 'hello world'",
             "/dev/null"
@@ -36,7 +40,7 @@ class SystemTest extends \Codeception\TestCase\Test
     {
         $tmpName = tempnam(sys_get_temp_dir(), "PHALCONCRON");
 
-        $systemCronJob = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob = new SystemJob(
             "* * * * *",
             "echo 'hello world'",
             $tmpName
@@ -51,19 +55,19 @@ class SystemTest extends \Codeception\TestCase\Test
     
     public function testSystemCronJobsInForeground()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
         
-        $systemCronJob1 = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob1 = new SystemJob(
             "* * * * *",
             "echo 'hello world 1'"
         );
 
-        $systemCronJob2 = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob2 = new SystemJob(
             "* * * * *",
             "echo 'hello world 2'"
         );
 
-        $systemCronJob3 = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob3 = new SystemJob(
             "* * * * *",
             "echo 'hello world 3'"
         );
@@ -84,7 +88,7 @@ class SystemTest extends \Codeception\TestCase\Test
 
     public function testSystemCronJobsInBackground()
     {
-        $systemCronJob = new \Sid\Phalcon\Cron\Job\System(
+        $systemCronJob = new SystemJob(
             "* * * * *",
             "sleep 1",
             "/dev/null"
@@ -103,7 +107,7 @@ class SystemTest extends \Codeception\TestCase\Test
 
     public function testTerminateBackgroundCronJob()
     {
-        $cronJob = new \Sid\Phalcon\Cron\Job\System("* * * * *", "sleep 2");
+        $cronJob = new SystemJob("* * * * *", "sleep 2");
 
         $process = $cronJob->runInBackground();
 
@@ -116,7 +120,7 @@ class SystemTest extends \Codeception\TestCase\Test
 
     public function testKillBackgroundCronJob()
     {
-        $cronJob = new \Sid\Phalcon\Cron\Job\System("* * * * *", "sleep 2");
+        $cronJob = new SystemJob("* * * * *", "sleep 2");
 
         $process = $cronJob->runInBackground();
 

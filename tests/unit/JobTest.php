@@ -2,17 +2,22 @@
 
 namespace Sid\Phalcon\Cron\Tests;
 
-class JobTest extends \Codeception\TestCase\Test
+use Codeception\TestCase\Test;
+use DateTime;
+use Sid\Phalcon\Cron\Manager;
+use Sid\Phalcon\Cron\Job\System as SystemJob;
+
+class JobTest extends Test
 {
     public function testPredefinedExpressions()
     {
-        $cron = new \Sid\Phalcon\Cron\Manager();
+        $cron = new Manager();
 
-        $yearlyCronJob  = new \Sid\Phalcon\Cron\Job\System("@yearly", "echo 'yearly'");
-        $monthlyCronJob = new \Sid\Phalcon\Cron\Job\System("@monthly", "echo 'monthly'");
-        $weeklyCronJob  = new \Sid\Phalcon\Cron\Job\System("@weekly", "echo 'weekly'");
-        $dailyCronJob   = new \Sid\Phalcon\Cron\Job\System("@daily", "echo 'daily'");
-        $hourlyCronJob  = new \Sid\Phalcon\Cron\Job\System("@hourly", "echo 'hourly'");
+        $yearlyCronJob  = new SystemJob("@yearly", "echo 'yearly'");
+        $monthlyCronJob = new SystemJob("@monthly", "echo 'monthly'");
+        $weeklyCronJob  = new SystemJob("@weekly", "echo 'weekly'");
+        $dailyCronJob   = new SystemJob("@daily", "echo 'daily'");
+        $hourlyCronJob  = new SystemJob("@hourly", "echo 'hourly'");
 
         $cron->add($yearlyCronJob);
         $cron->add($monthlyCronJob);
@@ -20,11 +25,11 @@ class JobTest extends \Codeception\TestCase\Test
         $cron->add($dailyCronJob);
         $cron->add($hourlyCronJob);
 
-        $year  = new \DateTime("2015-01-01 00:00:00");
-        $month = new \DateTime("2015-01-01 00:00:00");
-        $week  = new \DateTime("2015-01-04 00:00:00"); // Sunday
-        $day   = new \DateTime("2015-01-02 00:00:00");
-        $hour  = new \DateTime("2015-01-01 15:00:00");
+        $year  = new DateTime("2015-01-01 00:00:00");
+        $month = new DateTime("2015-01-01 00:00:00");
+        $week  = new DateTime("2015-01-04 00:00:00"); // Sunday
+        $day   = new DateTime("2015-01-02 00:00:00");
+        $hour  = new DateTime("2015-01-01 15:00:00");
 
         $this->assertEquals(
             $cron->runInForeground($year),

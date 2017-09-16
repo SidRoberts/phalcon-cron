@@ -2,7 +2,10 @@
 
 namespace Sid\Phalcon\Cron\Job;
 
-class Phalcon extends \Sid\Phalcon\Cron\Job
+use Phalcon\DiInterface;
+use Sid\Phalcon\Cron\Job;
+
+class Phalcon extends Job
 {
     /**
      * @var array|null
@@ -20,7 +23,7 @@ class Phalcon extends \Sid\Phalcon\Cron\Job
     public function __construct($expression, $body = null)
     {
         $di = $this->getDI();
-        if (!($di instanceof \Phalcon\DiInterface)) {
+        if (!($di instanceof DiInterface)) {
             throw new Exception("A dependency injection object is required to access internal services");
         }
 

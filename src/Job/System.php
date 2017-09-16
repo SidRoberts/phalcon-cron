@@ -2,7 +2,9 @@
 
 namespace Sid\Phalcon\Cron\Job;
 
-class System extends \Sid\Phalcon\Cron\Job
+use Sid\Phalcon\Cron\Job;
+
+class System extends Job
 {
     /**
      * @var string

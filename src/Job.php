@@ -2,7 +2,10 @@
 
 namespace Sid\Phalcon\Cron;
 
-abstract class Job extends \Phalcon\Di\Injectable
+use Cron\CronExpression;
+use Phalcon\Di\Injectable;
+
+abstract class Job extends Injectable
 {
     /**
      * @var string
@@ -38,7 +41,7 @@ abstract class Job extends \Phalcon\Di\Injectable
      */
     public function isDue($datetime = "now")
     {
-        return \Cron\CronExpression::factory($this->getExpression())->isDue($datetime);
+        return CronExpression::factory($this->getExpression())->isDue($datetime);
     }
 
 
