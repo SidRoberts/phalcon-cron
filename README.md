@@ -120,15 +120,18 @@ Running jobs in the background (parallel):
     Job2 ----------------->
     Job3 ---->
 
-For most applications it is recommended to use `->runInBackground()` as this is typical of a Cron implementation and is often quicker. If you specifically need to access the output of each Cron Job, use `->runInForeground()`.
+For most applications it is recommended to use `->runInBackground()` as this is typical of a Cron implementation and is often quicker.
+If you specifically need to access the output of each Cron Job, use `->runInForeground()`.
 
-`->runInBackground()` returns an array of Process instances. `->runInForeground()` returns an array of outputs.
+`->runInBackground()` returns an array of Process instances.
+`->runInForeground()` returns an array of outputs.
 
 
 
 ## Waiting, Terminating And Killing ##
 
-By default all background processes register a [shutdown function](http://php.net/manual/en/function.register-shutdown-function.php) that forces the PHP script to wait for job to complete before shutting down. You can call `->wait()` on a Process instance if you need to wait until it has finished.
+By default all background processes register a [shutdown function](http://php.net/manual/en/function.register-shutdown-function.php) that forces the PHP script to wait for job to complete before shutting down.
+You can call `->wait()` on a Process instance if you need to wait until it has finished.
 
 You can also use `->terminate()` and `->kill()` on a Process to send terminate and kill signals.
 
