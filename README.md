@@ -19,9 +19,9 @@ Install using Composer:
 
 ```json
 {
-	"require": {
-		"sidroberts/phalcon-cron": "dev-master"
-	}
+    "require": {
+        "sidroberts/phalcon-cron": "dev-master"
+    }
 }
 ```
 
@@ -56,39 +56,39 @@ $console->handle($arguments);
 
 ```php
 $di->set(
-	"cron",
-	function () {
-		$cron = new \Sid\Phalcon\Cron\Manager();
-		
-		$cron->add(
-			new \Sid\Phalcon\Cron\Job\Callback(
-				"* * * * *",
-				function () {
-					// ...
-				}
-			)
-		);
-		
-		$cron->add(
-			new \Sid\Phalcon\Cron\Job\Phalcon(
-				"0 * * * *",
-				[
-					"task"   => "task",
-					"action" => "action",
-					"params" => "params"
-				]
-			)
-		);
-		
-		$cron->add(
-			new \Sid\Phalcon\Cron\Job\System(
-				"* 0 * * *",
-				"sh backup.sh"
-			)
-		);
-		
-		return $cron;
-	}
+    "cron",
+    function () {
+        $cron = new \Sid\Phalcon\Cron\Manager();
+
+        $cron->add(
+            new \Sid\Phalcon\Cron\Job\Callback(
+                "* * * * *",
+                function () {
+                    // ...
+                }
+            )
+        );
+
+        $cron->add(
+            new \Sid\Phalcon\Cron\Job\Phalcon(
+                "0 * * * *",
+                [
+                    "task"   => "task",
+                    "action" => "action",
+                    "params" => "params"
+                ]
+            )
+        );
+
+        $cron->add(
+            new \Sid\Phalcon\Cron\Job\System(
+                "* 0 * * *",
+                "sh backup.sh"
+            )
+        );
+
+        return $cron;
+    }
 );
 ```
 
@@ -97,10 +97,10 @@ $di->set(
 ```php
 class CronTask extends \Phalcon\Cli\Task
 {
-	public function mainAction()
-	{
-		$this->cron->runInBackground();
-	}
+    public function mainAction()
+    {
+        $this->cron->runInBackground();
+    }
 }
 ```
 
