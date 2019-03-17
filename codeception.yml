@@ -20,7 +20,6 @@ coverage:
     whitelist:
         include:
             - src/*
-    blacklist:
-        include:
+        exclude:
             - tests/*
             - vendor/*
