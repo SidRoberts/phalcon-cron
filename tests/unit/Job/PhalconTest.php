@@ -68,9 +68,11 @@ class PhalconTest extends \Codeception\TestCase\Test
     {
         $di = $this->getDi();
 
+        $cron = $di->get("cron");
 
 
-        $jobs = $di->get("cron")->getDueJobs();
+
+        $jobs = $cron->getDueJobs();
 
         $this->assertCount(
             1,
@@ -104,9 +106,11 @@ class PhalconTest extends \Codeception\TestCase\Test
     {
         $di = $this->getDi();
 
+        $cron = $di->get("cron");
 
 
-        $outputs = $di->get("cron")->runInForeground();
+
+        $outputs = $cron->runInForeground();
 
         $this->assertEquals(
             print_r(
