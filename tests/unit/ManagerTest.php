@@ -17,23 +17,23 @@ class ManagerTest extends Test
         $cronJob1 = new PhalconJob("* * * * *", "task", "action", "params");
         $cronJob2 = new SystemJob("* * * * *", "echo 'hello world'");
 
-        $this->assertEquals(
+        $this->assertCount(
             0,
-            count($cron->getDueJobs())
+            $cron->getDueJobs()
         );
 
         $cron->add($cronJob1);
 
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($cron->getDueJobs())
+            $cron->getDueJobs()
         );
 
         $cron->add($cronJob2);
 
-        $this->assertEquals(
+        $this->assertCount(
             2,
-            count($cron->getDueJobs())
+            $cron->getDueJobs()
         );
     }
 
@@ -51,9 +51,9 @@ class ManagerTest extends Test
 
 
 
-        $this->assertEquals(
+        $this->assertCount(
             2,
-            count($jobs)
+            $jobs
         );
 
 

@@ -72,9 +72,9 @@ class PhalconTest extends \Codeception\TestCase\Test
 
         $jobs = $di->get("cron")->getDueJobs();
 
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($jobs)
+            $jobs
         );
 
         $job = $jobs[0];

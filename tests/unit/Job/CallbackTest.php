@@ -15,10 +15,11 @@ class CallbackTest extends \Codeception\TestCase\Test
 
         $output = $cronJob->runInForeground();
 
-        $this->assertTrue(
-            is_callable(
-                $cronJob->getCallback()
-            )
+
+
+        $this->assertInternalType(
+            "callable",
+            $cronJob->getCallback()
         );
 
         $this->assertEquals(

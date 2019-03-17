@@ -15,9 +15,9 @@ class CrontabParserTest extends Test
 
         $jobs = $crontab1->getJobs();
 
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($jobs)
+            $jobs
         );
 
         $job = $jobs[0];
@@ -43,9 +43,9 @@ class CrontabParserTest extends Test
 
 
 
-        $this->assertEquals(
+        $this->assertCount(
             2,
-            count($jobs)
+            $jobs
         );
 
 
@@ -83,9 +83,9 @@ class CrontabParserTest extends Test
 
 
 
-        $this->assertEquals(
+        $this->assertCount(
             3,
-            count($jobs)
+            $jobs
         );
 
 
