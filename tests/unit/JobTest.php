@@ -32,47 +32,47 @@ class JobTest extends Test
         $hour  = new DateTime("2015-01-01 15:00:00");
 
         $this->assertEquals(
-            $cron->runInForeground($year),
             [
                 "yearly\n",
                 "monthly\n",
                 "daily\n",
-                "hourly\n"
-            ]
+                "hourly\n",
+            ],
+            $cron->runInForeground($year)
         );
 
         $this->assertEquals(
-            $cron->runInForeground($month),
             [
                 "yearly\n",
                 "monthly\n",
                 "daily\n",
-                "hourly\n"
-            ]
+                "hourly\n",
+            ],
+            $cron->runInForeground($month)
         );
 
         $this->assertEquals(
-            $cron->runInForeground($week),
             [
                 "weekly\n",
                 "daily\n",
-                "hourly\n"
-            ]
+                "hourly\n",
+            ],
+            $cron->runInForeground($week)
         );
 
         $this->assertEquals(
-            $cron->runInForeground($day),
             [
                 "daily\n",
-                "hourly\n"
-            ]
+                "hourly\n",
+            ],
+            $cron->runInForeground($day)
         );
 
         $this->assertEquals(
-            $cron->runInForeground($hour),
             [
-                "hourly\n"
-            ]
+                "hourly\n",
+            ],
+            $cron->runInForeground($hour)
         );
     }
 }

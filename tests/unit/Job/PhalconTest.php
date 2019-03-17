@@ -73,15 +73,15 @@ class PhalconTest extends \Codeception\TestCase\Test
         $jobs = $di->get("cron")->getDueJobs();
 
         $this->assertEquals(
-            count($jobs),
-            1
+            1,
+            count($jobs)
         );
 
         $job = $jobs[0];
 
         $this->assertEquals(
-            $job->getExpression(),
-            "* * * * *"
+            "* * * * *",
+            $job->getExpression()
         );
 
         $this->assertEquals(
@@ -109,7 +109,6 @@ class PhalconTest extends \Codeception\TestCase\Test
         $outputs = $di->get("cron")->runInForeground();
 
         $this->assertEquals(
-            $outputs[0],
             print_r(
                 [
                     "param1",
@@ -117,7 +116,8 @@ class PhalconTest extends \Codeception\TestCase\Test
                     "param3",
                 ],
                 true
-            )
+            ),
+            $outputs[0]
         );
     }
 

@@ -18,22 +18,22 @@ class ManagerTest extends Test
         $cronJob2 = new SystemJob("* * * * *", "echo 'hello world'");
 
         $this->assertEquals(
-            count($cron->getDueJobs()),
-            0
+            0,
+            count($cron->getDueJobs())
         );
 
         $cron->add($cronJob1);
 
         $this->assertEquals(
-            count($cron->getDueJobs()),
-            1
+            1,
+            count($cron->getDueJobs())
         );
 
         $cron->add($cronJob2);
 
         $this->assertEquals(
-            count($cron->getDueJobs()),
-            2
+            2,
+            count($cron->getDueJobs())
         );
     }
 
@@ -168,32 +168,32 @@ class ManagerTest extends Test
 
 
         $this->assertEquals(
-            count($jobs),
-            2
+            2,
+            count($jobs)
         );
 
 
 
         $this->assertEquals(
-            $jobs[0]->getExpression(),
-            "@hourly"
+            "@hourly",
+            $jobs[0]->getExpression()
         );
 
         $this->assertEquals(
-            $jobs[0]->getCommand(),
-            "sh purge-cache.sh"
+            "sh purge-cache.sh",
+            $jobs[0]->getCommand()
         );
 
 
 
         $this->assertEquals(
-            $jobs[1]->getExpression(),
-            "* 0 * * *"
+            "* 0 * * *",
+            $jobs[1]->getExpression()
         );
 
         $this->assertEquals(
-            $jobs[1]->getCommand(),
-            "sh backup.sh"
+            "sh backup.sh",
+            $jobs[1]->getCommand()
         );
     }
 }

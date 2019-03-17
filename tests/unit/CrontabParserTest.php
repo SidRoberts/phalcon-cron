@@ -16,20 +16,20 @@ class CrontabParserTest extends Test
         $jobs = $crontab1->getJobs();
 
         $this->assertEquals(
-            count($jobs),
-            1
+            1,
+            count($jobs)
         );
 
         $job = $jobs[0];
 
         $this->assertEquals(
-            $job->getExpression(),
-            "@hourly"
+            "@hourly",
+            $job->getExpression()
         );
 
         $this->assertEquals(
-            $job->getCommand(),
-            "sh backup.sh"
+            "sh backup.sh",
+            $job->getCommand()
         );
     }
 
@@ -44,32 +44,32 @@ class CrontabParserTest extends Test
 
 
         $this->assertEquals(
-            count($jobs),
-            2
+            2,
+            count($jobs)
         );
 
 
 
         $this->assertEquals(
-            $jobs[0]->getExpression(),
-            "@hourly"
+            "@hourly",
+            $jobs[0]->getExpression()
         );
 
         $this->assertEquals(
-            $jobs[0]->getCommand(),
-            "sh purge-cache.sh"
+            "sh purge-cache.sh",
+            $jobs[0]->getCommand()
         );
 
 
 
         $this->assertEquals(
-            $jobs[1]->getExpression(),
-            "* 0 * * *"
+            "* 0 * * *",
+            $jobs[1]->getExpression()
         );
 
         $this->assertEquals(
-            $jobs[1]->getCommand(),
-            "sh backup.sh"
+            "sh backup.sh",
+            $jobs[1]->getCommand()
         );
     }
 
@@ -84,44 +84,44 @@ class CrontabParserTest extends Test
 
 
         $this->assertEquals(
-            count($jobs),
-            3
+            3,
+            count($jobs)
         );
 
 
 
         $this->assertEquals(
-            $jobs[0]->getExpression(),
-            "@hourly"
+            "@hourly",
+            $jobs[0]->getExpression()
         );
 
         $this->assertEquals(
-            $jobs[0]->getCommand(),
-            "sh purge-cache.sh"
-        );
-
-
-
-        $this->assertEquals(
-            $jobs[1]->getExpression(),
-            "* 0 * * *"
-        );
-
-        $this->assertEquals(
-            $jobs[1]->getCommand(),
-            "sh backup.sh"
+            "sh purge-cache.sh",
+            $jobs[0]->getCommand()
         );
 
 
 
         $this->assertEquals(
-            $jobs[2]->getExpression(),
-            "0,30 1-12 * mon,wed,fri *"
+            "* 0 * * *",
+            $jobs[1]->getExpression()
         );
 
         $this->assertEquals(
-            $jobs[2]->getCommand(),
-            "php something.php"
+            "sh backup.sh",
+            $jobs[1]->getCommand()
+        );
+
+
+
+        $this->assertEquals(
+            "0,30 1-12 * mon,wed,fri *",
+            $jobs[2]->getExpression()
+        );
+
+        $this->assertEquals(
+            "php something.php",
+            $jobs[2]->getCommand()
         );
     }
 }

@@ -18,18 +18,18 @@ class SystemTest extends Test
         $output = $cronJob->runInForeground();
 
         $this->assertEquals(
-            $cronJob->getExpression(),
-            "* * * * *"
+            "* * * * *",
+            $cronJob->getExpression()
         );
 
         $this->assertEquals(
-            $cronJob->getCommand(),
-            "echo 'hello world'"
+            "echo 'hello world'",
+            $cronJob->getCommand()
         );
 
         $this->assertEquals(
-            $output,
-            "hello world\n"
+            "hello world\n",
+            $output
         );
     }
 
@@ -44,8 +44,8 @@ class SystemTest extends Test
         );
 
         $this->assertEquals(
-            $systemCronJob->runInForeground(),
-            ""
+            "",
+            $systemCronJob->runInForeground()
         );
     }
 
@@ -96,12 +96,12 @@ class SystemTest extends Test
         $cron->add($systemCronJob3);
 
         $this->assertEquals(
-            $cron->runInForeground(),
             [
                 "hello world 1\n",
                 "hello world 2\n",
-                "hello world 3\n"
-            ]
+                "hello world 3\n",
+            ],
+            $cron->runInForeground()
         );
     }
 

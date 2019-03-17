@@ -22,8 +22,8 @@ class CallbackTest extends \Codeception\TestCase\Test
         );
 
         $this->assertEquals(
-            $output,
-            "hello world"
+            "hello world",
+            $output
         );
     }
 
