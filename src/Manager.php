@@ -18,18 +18,12 @@ class Manager
 
 
 
-    /**
-     * @param Job $job
-     */
     public function add(Job $job)
     {
         $this->jobs[] = $job;
     }
 
-    /**
-     * @param string $filename
-     */
-    public function addCrontab($filename)
+    public function addCrontab(string $filename)
     {
         $crontab = new CrontabParser($filename);
 
@@ -42,10 +36,8 @@ class Manager
 
     /**
      * @param \DateTime|string $now
-     *
-     * @return array
      */
-    public function getDueJobs($now = null)
+    public function getDueJobs($now = null) : array
     {
         $jobs = $this->jobs;
 
@@ -61,10 +53,7 @@ class Manager
 
 
 
-    /**
-     * @return array
-     */
-    public function getAllJobs()
+    public function getAllJobs() : array
     {
         return $this->jobs;
     }
@@ -75,10 +64,8 @@ class Manager
      * Run all due jobs in the foreground.
      *
      * @param \DateTime|string $now
-     *
-     * @return array
      */
-    public function runInForeground($now = null)
+    public function runInForeground($now = null) : array
     {
         $jobs = $this->getDueJobs($now);
 
@@ -95,10 +82,8 @@ class Manager
      * Run all due jobs in the background.
      *
      * @param \DateTime|string $now
-     *
-     * @return array
      */
-    public function runInBackground($now = null)
+    public function runInBackground($now = null) : array
     {
         $jobs = $this->getDueJobs($now);
 

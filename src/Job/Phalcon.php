@@ -15,12 +15,11 @@ class Phalcon extends Job
 
 
     /**
-     * @param string     $expression
      * @param array|null $body
      *
      * @throws Exception
      */
-    public function __construct($expression, $body = null)
+    public function __construct(string $expression, $body = null)
     {
         $di = $this->getDI();
         if (!($di instanceof DiInterface)) {
@@ -48,10 +47,7 @@ class Phalcon extends Job
 
 
 
-    /**
-     * @return string
-     */
-    public function runInForeground()
+    public function runInForeground() : string
     {
         ob_start();
 

@@ -14,20 +14,14 @@ abstract class Job extends Injectable
 
 
 
-    /**
-     * @param string $expression
-     */
-    public function __construct($expression)
+    public function __construct(string $expression)
     {
         $this->expression = $expression;
     }
 
 
 
-    /**
-     * @return string
-     */
-    public function getExpression()
+    public function getExpression() : string
     {
         return $this->expression;
     }
@@ -36,10 +30,8 @@ abstract class Job extends Injectable
 
     /**
      * @param \DateTime|string $datetime
-     *
-     * @return boolean
      */
-    public function isDue($datetime = "now")
+    public function isDue($datetime = "now") : bool
     {
         return CronExpression::factory($this->getExpression())->isDue($datetime);
     }
@@ -52,11 +44,9 @@ abstract class Job extends Injectable
     abstract public function runInForeground();
 
     /**
-     * @return Process
-     *
      * @throws Exception
      */
-    public function runInBackground()
+    public function runInBackground() : Process
     {
         $processID = pcntl_fork();
 

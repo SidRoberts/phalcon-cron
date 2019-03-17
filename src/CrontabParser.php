@@ -14,11 +14,9 @@ class CrontabParser
 
 
     /**
-     * @param string $filename
-     *
      * @throws Exception
      */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         if (!file_exists($filename)) {
             throw new Exception("Crontab file does not exist.");
@@ -29,10 +27,7 @@ class CrontabParser
 
 
 
-    /**
-     * @return array
-     */
-    public function getJobs()
+    public function getJobs() : array
     {
         $contents = file_get_contents($this->filename);
 

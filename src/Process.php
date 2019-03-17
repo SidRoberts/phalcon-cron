@@ -16,10 +16,7 @@ class Process
 
 
 
-    /**
-     * @param int $processID
-     */
-    public function __construct($processID)
+    public function __construct(int $processID)
     {
         $this->processID = $processID;
 
@@ -30,10 +27,7 @@ class Process
 
 
 
-    /**
-     * @return int
-     */
-    public function getProcessID()
+    public function getProcessID() : int
     {
         return $this->processID;
     }
@@ -43,10 +37,8 @@ class Process
     /**
      * Determine if this process is currently running. Defunct/zombie processes
      * are ignored.
-     *
-     * @return boolean
      */
-    public function isRunning()
+    public function isRunning() : bool
     {
         $result = shell_exec(sprintf("ps %d", $this->getProcessID()) . " | grep -v '<defunct>'");
 
@@ -67,20 +59,16 @@ class Process
 
     /**
      * Terminate the process.
-     *
-     * @return boolean
      */
-    public function terminate()
+    public function terminate() : bool
     {
         return posix_kill($this->getProcessID(), SIGTERM);
     }
 
     /**
      * Kill the process.
-     *
-     * @return boolean
      */
-    public function kill()
+    public function kill() : bool
     {
         return posix_kill($this->getProcessID(), SIGKILL);
     }

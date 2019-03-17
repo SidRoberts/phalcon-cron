@@ -12,12 +12,8 @@ class Callback extends Job
     protected $callback;
     
     
-    
-    /**
-     * @param string   $expression
-     * @param callable $callback
-     */
-    public function __construct($expression, callable $callback)
+
+    public function __construct(string $expression, callable $callback)
     {
         parent::__construct($expression);
         
@@ -26,10 +22,7 @@ class Callback extends Job
     
     
     
-    /**
-     * @return callable
-     */
-    public function getCallback()
+    public function getCallback() : callable
     {
         return $this->callback;
     }

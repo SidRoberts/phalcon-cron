@@ -18,12 +18,7 @@ class System extends Job
 
 
 
-    /**
-     * @param string $expression
-     * @param string $command
-     * @param string $output
-     */
-    public function __construct($expression, $command, $output = null)
+    public function __construct(string $expression, string $command, string $output = null)
     {
         parent::__construct($expression);
 
@@ -33,10 +28,7 @@ class System extends Job
 
 
 
-    /**
-     * @return string
-     */
-    public function getCommand()
+    public function getCommand() : string
     {
         return $this->command;
     }
@@ -51,10 +43,7 @@ class System extends Job
 
 
 
-    /**
-     * @return string
-     */
-    private function buildCommand()
+    private function buildCommand() : string
     {
         $command = $this->getCommand();
 
