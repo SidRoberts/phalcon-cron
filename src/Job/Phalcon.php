@@ -51,15 +51,23 @@ class Phalcon extends Job
 
     public function runInForeground() : string
     {
+        $di = $this->getDI();
+
+        $console = $di->get("console");
+
+
+
         ob_start();
 
-        $this->getDI()->get("console")->handle(
+        $console->handle(
             $this->getBody()
         );
 
         $contents = ob_get_contents();
 
         ob_end_clean();
+
+
 
         return $contents;
     }
