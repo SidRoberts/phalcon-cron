@@ -72,11 +72,17 @@ class PhalconTest extends \Codeception\TestCase\Test
 
         $jobs = $di->get("cron")->getDueJobs();
 
-        $this->assertEquals(count($jobs), 1);
+        $this->assertEquals(
+            count($jobs),
+            1
+        );
 
         $job = $jobs[0];
 
-        $this->assertEquals($job->getExpression(), "* * * * *");
+        $this->assertEquals(
+            $job->getExpression(),
+            "* * * * *"
+        );
 
         $this->assertEquals(
             $job->getBody(),
@@ -126,13 +132,17 @@ class PhalconTest extends \Codeception\TestCase\Test
         $processes = $di->get("cron")->runInBackground();
 
         foreach ($processes as $process) {
-            $this->assertTrue($process->isRunning());
+            $this->assertTrue(
+                $process->isRunning()
+            );
         }
 
         $di->get("cron")->wait();
 
         foreach ($processes as $process) {
-            $this->assertFalse($process->isRunning());
+            $this->assertFalse(
+                $process->isRunning()
+            );
         }
     }
 
@@ -145,13 +155,17 @@ class PhalconTest extends \Codeception\TestCase\Test
         $processes = $di->get("cron")->runInBackground();
 
         foreach ($processes as $process) {
-            $this->assertTrue($process->isRunning());
+            $this->assertTrue(
+                $process->isRunning()
+            );
         }
 
         $di->get("cron")->terminate();
 
         foreach ($processes as $process) {
-            $this->assertFalse($process->isRunning());
+            $this->assertFalse(
+                $process->isRunning()
+            );
         }
     }
 
@@ -164,13 +178,17 @@ class PhalconTest extends \Codeception\TestCase\Test
         $processes = $di->get("cron")->runInBackground();
 
         foreach ($processes as $process) {
-            $this->assertTrue($process->isRunning());
+            $this->assertTrue(
+                $process->isRunning()
+            );
         }
 
         $di->get("cron")->kill();
 
         foreach ($processes as $process) {
-            $this->assertFalse($process->isRunning());
+            $this->assertFalse(
+                $process->isRunning()
+            );
         }
     }
 }

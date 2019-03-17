@@ -23,7 +23,9 @@ class Phalcon extends Job
     {
         $di = $this->getDI();
         if (!($di instanceof DiInterface)) {
-            throw new Exception("A dependency injection object is required to access internal services");
+            throw new Exception(
+                "A dependency injection object is required to access internal services"
+            );
         }
 
 

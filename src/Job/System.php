@@ -61,6 +61,8 @@ class System extends Job
      */
     public function runInForeground()
     {
-        return shell_exec($this->buildCommand());
+        return shell_exec(
+            $this->buildCommand()
+        );
     }
 }

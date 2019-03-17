@@ -27,7 +27,9 @@ class Manager
     {
         $crontab = new CrontabParser($filename);
 
-        foreach ($crontab->getJobs() as $job) {
+        $jobs = $crontab->getJobs();
+
+        foreach ($jobs as $job) {
             $this->add($job);
         }
     }

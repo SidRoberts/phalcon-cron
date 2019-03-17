@@ -17,10 +17,20 @@ class SystemTest extends Test
 
         $output = $cronJob->runInForeground();
 
-        $this->assertEquals($cronJob->getExpression(), "* * * * *");
-        $this->assertEquals($cronJob->getCommand(), "echo 'hello world'");
+        $this->assertEquals(
+            $cronJob->getExpression(),
+            "* * * * *"
+        );
 
-        $this->assertEquals($output, "hello world\n");
+        $this->assertEquals(
+            $cronJob->getCommand(),
+            "echo 'hello world'"
+        );
+
+        $this->assertEquals(
+            $output,
+            "hello world\n"
+        );
     }
 
 
@@ -33,12 +43,18 @@ class SystemTest extends Test
             "/dev/null"
         );
 
-        $this->assertEquals($systemCronJob->runInForeground(), "");
+        $this->assertEquals(
+            $systemCronJob->runInForeground(),
+            ""
+        );
     }
 
     public function testSystemCronJobWithOutputToFile()
     {
-        $tmpName = tempnam(sys_get_temp_dir(), "PHALCONCRON");
+        $tmpName = tempnam(
+            sys_get_temp_dir(),
+            "PHALCONCRON"
+        );
 
         $systemCronJob = new SystemJob(
             "* * * * *",
@@ -48,7 +64,10 @@ class SystemTest extends Test
         
         $systemCronJob->runInForeground();
 
-        $this->assertEquals("hello world\n", file_get_contents($tmpName));
+        $this->assertEquals(
+            "hello world\n",
+            file_get_contents($tmpName)
+        );
     }
     
     
@@ -96,38 +115,56 @@ class SystemTest extends Test
 
         $process = $systemCronJob->runInBackground();
 
-        $this->assertTrue($process->isRunning());
+        $this->assertTrue(
+            $process->isRunning()
+        );
 
         $process->wait();
 
-        $this->assertFalse($process->isRunning());
+        $this->assertFalse(
+            $process->isRunning()
+        );
     }
 
 
 
     public function testTerminateBackgroundCronJob()
     {
-        $cronJob = new SystemJob("* * * * *", "sleep 2");
+        $cronJob = new SystemJob(
+            "* * * * *",
+            "sleep 2"
+        );
 
         $process = $cronJob->runInBackground();
 
-        $this->assertTrue($process->isRunning());
+        $this->assertTrue(
+            $process->isRunning()
+        );
 
         $process->terminate();
 
-        $this->assertFalse($process->isRunning());
+        $this->assertFalse(
+            $process->isRunning()
+        );
     }
 
     public function testKillBackgroundCronJob()
     {
-        $cronJob = new SystemJob("* * * * *", "sleep 2");
+        $cronJob = new SystemJob(
+            "* * * * *",
+            "sleep 2"
+        );
 
         $process = $cronJob->runInBackground();
 
-        $this->assertTrue($process->isRunning());
+        $this->assertTrue(
+            $process->isRunning()
+        );
 
         $process->kill();
 
-        $this->assertFalse($process->isRunning());
+        $this->assertFalse(
+            $process->isRunning()
+        );
     }
 }

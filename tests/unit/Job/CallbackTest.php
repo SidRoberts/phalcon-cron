@@ -15,9 +15,16 @@ class CallbackTest extends \Codeception\TestCase\Test
 
         $output = $cronJob->runInForeground();
 
-        $this->assertTrue(is_callable($cronJob->getCallback()));
+        $this->assertTrue(
+            is_callable(
+                $cronJob->getCallback()
+            )
+        );
 
-        $this->assertEquals($output, "hello world");
+        $this->assertEquals(
+            $output,
+            "hello world"
+        );
     }
 
 
@@ -33,11 +40,15 @@ class CallbackTest extends \Codeception\TestCase\Test
 
         $process = $cronJob->runInBackground();
 
-        $this->assertTrue($process->isRunning());
+        $this->assertTrue(
+            $process->isRunning()
+        );
 
         $process->wait();
 
-        $this->assertFalse($process->isRunning());
+        $this->assertFalse(
+            $process->isRunning()
+        );
     }
 
 
@@ -53,11 +64,15 @@ class CallbackTest extends \Codeception\TestCase\Test
 
         $process = $cronJob->runInBackground();
 
-        $this->assertTrue($process->isRunning());
+        $this->assertTrue(
+            $process->isRunning()
+        );
 
         $process->terminate();
 
-        $this->assertFalse($process->isRunning());
+        $this->assertFalse(
+            $process->isRunning()
+        );
     }
 
     public function testKillBackgroundCronJob()
@@ -71,10 +86,14 @@ class CallbackTest extends \Codeception\TestCase\Test
 
         $process = $cronJob->runInBackground();
 
-        $this->assertTrue($process->isRunning());
+        $this->assertTrue(
+            $process->isRunning()
+        );
 
         $process->kill();
 
-        $this->assertFalse($process->isRunning());
+        $this->assertFalse(
+            $process->isRunning()
+        );
     }
 }

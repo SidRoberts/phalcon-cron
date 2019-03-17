@@ -19,7 +19,9 @@ class CrontabParser
     public function __construct(string $filename)
     {
         if (!file_exists($filename)) {
-            throw new Exception("Crontab file does not exist.");
+            throw new Exception(
+                "Crontab file does not exist."
+            );
         }
 
         $this->filename = $filename;
@@ -37,7 +39,10 @@ class CrontabParser
 
         foreach ($lines as $line) {
             if (preg_match("/^(\@\w+|[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+)\s+(.*)$/", $line, $matches)) {
-                $jobs[] = new SystemJob($matches[1], $matches[2]);
+                $jobs[] = new SystemJob(
+                    $matches[1],
+                    $matches[2]
+                );
             }
         }
 

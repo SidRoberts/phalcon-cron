@@ -33,7 +33,11 @@ abstract class Job extends Injectable
      */
     public function isDue($datetime = "now") : bool
     {
-        return CronExpression::factory($this->getExpression())->isDue($datetime);
+        $cronExpression = CronExpression::factory(
+            $this->getExpression()
+        );
+
+        return $cronExpression->isDue($datetime);
     }
 
 
@@ -51,7 +55,9 @@ abstract class Job extends Injectable
         $processID = pcntl_fork();
 
         if ($processID == -1) {
-            throw new Exception("Failed to fork process.");
+            throw new Exception(
+                "Failed to fork process."
+            );
         }
 
         // This is the child process.

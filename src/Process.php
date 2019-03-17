@@ -22,7 +22,12 @@ class Process
 
 
 
-        register_shutdown_function([$this, "wait"]);
+        register_shutdown_function(
+            [
+                $this,
+                "wait",
+            ]
+        );
     }
 
 
@@ -40,7 +45,12 @@ class Process
      */
     public function isRunning() : bool
     {
-        $result = shell_exec(sprintf("ps %d", $this->getProcessID()) . " | grep -v '<defunct>'");
+        $result = shell_exec(
+            sprintf(
+                "ps %d | grep -v '<defunct>'",
+                $this->getProcessID()
+            )
+        );
 
         return (count(preg_split("/\n/", $result)) > 2);
     }
@@ -52,7 +62,10 @@ class Process
      */
     public function wait()
     {
-        pcntl_waitpid($this->getProcessID(), $status);
+        pcntl_waitpid(
+            $this->getProcessID(),
+            $status
+        );
     }
 
 
@@ -62,7 +75,10 @@ class Process
      */
     public function terminate() : bool
     {
-        return posix_kill($this->getProcessID(), SIGTERM);
+        return posix_kill(
+            $this->getProcessID(),
+            SIGTERM
+        );
     }
 
     /**
@@ -70,6 +86,9 @@ class Process
      */
     public function kill() : bool
     {
-        return posix_kill($this->getProcessID(), SIGKILL);
+        return posix_kill(
+            $this->getProcessID(),
+            SIGKILL
+        );
     }
 }
