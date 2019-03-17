@@ -22,18 +22,18 @@
 	
 	
 	"require": {
-		"php": ">= 5.6",
+		"php": "~7.0",
 		
-		"ext-phalcon": ">= 2.0.0",
+		"ext-phalcon": "~3.0",
 		
 		"mtdowling/cron-expression": "~1.0"
 	},
 	
 	"require-dev": {
-		"codeception/codeception": "2.1.2",
-		"phpunit/php-code-coverage": "~2.0",
+		"codeception/codeception": "~2.5",
+		"phpunit/php-code-coverage": "~6.0",
 		"squizlabs/php_codesniffer": "~3.0",
-		"codeclimate/php-test-reporter": "dev-master"
+		"codeclimate/php-test-reporter": "0.4.4"
 	},
 	
 	
