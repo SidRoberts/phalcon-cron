@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b phalcon-v$1
+git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b v$1
 
 cd cphalcon/ext/
 
