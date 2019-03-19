@@ -14,9 +14,9 @@
 	],
 	
 	"support": {
-		"source": "https://www.GitHub.com/SidRoberts/Phalcon-Cron",
-		"issues": "https://www.GitHub.com/SidRoberts/Phalcon-Cron/issues",
-		"wiki":   "https://www.GitHub.com/SidRoberts/Phalcon-Cron/wiki"
+		"source": "https://github.com/SidRoberts/phalcon-cron",
+		"issues": "https://github.com/SidRoberts/phalcon-cron/issues",
+		"wiki":   "https://github.com/SidRoberts/phalcon-cron/wiki"
 	},
 	
 	
