@@ -12,7 +12,6 @@ git:
   depth: 1
 
 install:
-  - composer self-update
   - git clone --depth=1 -q --branch=${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git
   - '(cd cphalcon/build; bash install &>/dev/null && phpenv config-add ../tests/_ci/phalcon.ini &> /dev/null && cd ../..;)'
   - php --ri phalcon
