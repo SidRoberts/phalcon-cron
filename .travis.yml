@@ -15,7 +15,7 @@ install:
   - git clone --depth=1 -q --branch=${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git
   - '(cd cphalcon/build; bash install &>/dev/null && phpenv config-add ../tests/_ci/phalcon.ini &> /dev/null && cd ../..;)'
   - php --ri phalcon
-  - composer update --dev --no-interaction
+  - composer update --no-interaction
 
 script:
   - php vendor/bin/codecept run unit --coverage --coverage-xml
