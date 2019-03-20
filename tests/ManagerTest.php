@@ -106,7 +106,7 @@ class ManagerTest extends Test
         $cron = new Manager();
 
         $cron->addCrontab(
-            __DIR__ . "/crontabs/crontab2"
+            __DIR__ . "/_support/crontabs/crontab2"
         );
 
         $jobs = $cron->getAllJobs();

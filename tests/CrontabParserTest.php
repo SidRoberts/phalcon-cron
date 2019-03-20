@@ -10,7 +10,7 @@ class CrontabParserTest extends Test
     public function testOne()
     {
         $crontab1 = new CrontabParser(
-            __DIR__ . "/crontabs/crontab1"
+            __DIR__ . "/_support/crontabs/crontab1"
         );
 
         $jobs = $crontab1->getJobs();
@@ -36,7 +36,7 @@ class CrontabParserTest extends Test
     public function testTwo()
     {
         $crontab2 = new CrontabParser(
-            __DIR__ . "/crontabs/crontab2"
+            __DIR__ . "/_support/crontabs/crontab2"
         );
 
         $jobs = $crontab2->getJobs();
@@ -76,7 +76,7 @@ class CrontabParserTest extends Test
     public function testThree()
     {
         $crontab3 = new CrontabParser(
-            __DIR__ . "/crontabs/crontab3"
+            __DIR__ . "/_support/crontabs/crontab3"
         );
 
         $jobs = $crontab3->getJobs();

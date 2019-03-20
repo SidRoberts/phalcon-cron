@@ -20,7 +20,6 @@ install:
 script:
   - php vendor/bin/codecept run unit --coverage --coverage-xml
   - php vendor/bin/phpcs src/ --standard=psr2
-  - php vendor/bin/phpcs tests/unit/ --standard=psr2
 
 after_script:
   - mkdir -p build/logs
