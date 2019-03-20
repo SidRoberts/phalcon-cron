@@ -3,6 +3,7 @@
 namespace Sid\Phalcon\Cron\Job;
 
 use Phalcon\DiInterface;
+use Sid\Phalcon\Cron\Exception;
 use Sid\Phalcon\Cron\Job;
 
 class Phalcon extends Job
