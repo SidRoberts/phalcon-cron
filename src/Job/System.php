@@ -34,7 +34,7 @@ class System extends Job
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getOutput()
     {
@@ -57,7 +57,7 @@ class System extends Job
 
 
     /**
-     * @return string
+     * @return string|null
      */
     public function runInForeground()
     {
