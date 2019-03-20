@@ -2,13 +2,10 @@
 
 namespace Sid\Phalcon\Cron;
 
-class Manager
-{
-    /**
-     * @var array
-     */
-    protected $jobs = [];
+use DateTime;
 
+class Manager extends \Sid\Cron\Manager
+{
     /**
      * For background jobs.
      *
@@ -17,11 +14,6 @@ class Manager
     protected $processes = [];
 
 
-
-    public function add(Job $job)
-    {
-        $this->jobs[] = $job;
-    }
 
     public function addCrontab(string $filename)
     {
@@ -37,37 +29,9 @@ class Manager
 
 
     /**
-     * @param \DateTime|string $now
-     */
-    public function getDueJobs($now = null) : array
-    {
-        $jobs = $this->jobs;
-
-        $jobs = array_filter(
-            $jobs,
-            function ($job) use ($now) {
-                return $job->isDue($now);
-            }
-        );
-
-        return $jobs;
-    }
-
-
-
-    public function getAllJobs() : array
-    {
-        return $this->jobs;
-    }
-
-
-
-    /**
      * Run all due jobs in the foreground.
-     *
-     * @param \DateTime|string $now
      */
-    public function runInForeground($now = null) : array
+    public function runInForeground(DateTime $now = null) : array
     {
         $jobs = $this->getDueJobs($now);
 
@@ -82,10 +46,8 @@ class Manager
 
     /**
      * Run all due jobs in the background.
-     *
-     * @param \DateTime|string $now
      */
-    public function runInBackground($now = null) : array
+    public function runInBackground(DateTime $now = null) : array
     {
         $jobs = $this->getDueJobs($now);
 

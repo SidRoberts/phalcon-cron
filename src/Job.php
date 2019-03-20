@@ -3,9 +3,10 @@
 namespace Sid\Phalcon\Cron;
 
 use Cron\CronExpression;
+use DateTime;
 use Phalcon\Di\Injectable;
 
-abstract class Job extends Injectable
+abstract class Job extends Injectable implements \Sid\Cron\JobInterface
 {
     /**
      * @var string
@@ -28,10 +29,7 @@ abstract class Job extends Injectable
 
 
 
-    /**
-     * @param \DateTime|string $datetime
-     */
-    public function isDue($datetime = "now") : bool
+    public function isDue(DateTime $datetime = null) : bool
     {
         $cronExpression = CronExpression::factory(
             $this->getExpression()

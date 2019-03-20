@@ -25,6 +25,8 @@
 		"php": "~7.1",
 		
 		"ext-phalcon": "~3.0",
+
+		"sidroberts/cron": "~2.0",
 		
 		"mtdowling/cron-expression": "~1.0"
 	},
