@@ -38,7 +38,9 @@ class CrontabParser
         $jobs = [];
 
         foreach ($lines as $line) {
-            if (preg_match("/^(\@\w+|[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+)\s+(.*)$/", $line, $matches)) {
+            $cronLineRegEx = "/^(\@\w+|[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+\s[^\s]+)\s+(.*)$/";
+
+            if (preg_match($cronLineRegEx, $line, $matches)) {
                 $jobs[] = new SystemJob(
                     $matches[1],
                     $matches[2]
