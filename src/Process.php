@@ -47,12 +47,14 @@ class Process
     {
         $result = shell_exec(
             sprintf(
-                "ps %d | grep -v '<defunct>'",
+                "ps -p %d --no-headers | grep -v '<defunct>'",
                 $this->getProcessID()
             )
         );
 
-        return (count(preg_split("/\n/", $result)) > 2);
+        $result = trim($result, "\n");
+
+        return ($result !== "");
     }
 
 
