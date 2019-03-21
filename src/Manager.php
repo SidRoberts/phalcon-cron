@@ -8,8 +8,6 @@ class Manager extends \Sid\Cron\Manager
 {
     /**
      * For background jobs.
-     *
-     * @var array
      */
     protected $processes = [];
 
