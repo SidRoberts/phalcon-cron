@@ -46,9 +46,10 @@ class System extends Job
     private function buildCommand() : string
     {
         $command = $this->getCommand();
+        $output  = $this->getOutput();
 
-        if ($this->getOutput()) {
-            $command .= ' > ' . $this->getOutput() . ' 2>&1';
+        if ($output) {
+            $command .= " > " . $output . " 2>&1";
         }
 
         return $command;
