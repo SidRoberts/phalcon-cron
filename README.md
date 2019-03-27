@@ -3,7 +3,7 @@ Sid\Phalcon\Cron
 
 Cron component for Phalcon.
 
-[![Build Status](https://img.shields.io/travis/SidRoberts/phalcon-cron/1.0.x.svg?style=for-the-badge)](https://travis-ci.org/SidRoberts/cron)
+[![Build Status](https://img.shields.io/travis/SidRoberts/phalcon-cron/1.0.x.svg?style=for-the-badge)](https://travis-ci.org/SidRoberts/phalcon-cron)
 [![GitHub release](https://img.shields.io/github/release/SidRoberts/phalcon-cron.svg?style=for-the-badge)]()
 
 [![License](https://img.shields.io/github/license/SidRoberts/phalcon-cron.svg?style=for-the-badge)]()
