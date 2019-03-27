@@ -34,8 +34,7 @@
 	"require-dev": {
 		"codeception/codeception": "~2.5",
 		"phpunit/php-code-coverage": "~6.0",
-		"squizlabs/php_codesniffer": "~3.0",
-		"codeclimate/php-test-reporter": "0.4.4"
+		"squizlabs/php_codesniffer": "~3.0"
 	},
 	
 	
