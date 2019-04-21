@@ -1,13 +1,12 @@
 <?php
 
-namespace Sid\Phalcon\Cron\Tests;
+namespace Tests;
 
-use Codeception\TestCase\Test;
 use Sid\Phalcon\Cron\CrontabParser;
 
-class CrontabParserTest extends Test
+class CrontabParserCest
 {
-    public function testOne()
+    public function one(UnitTester $I)
     {
         $crontab1 = new CrontabParser(
             __DIR__ . "/_support/crontabs/crontab1"
@@ -15,25 +14,25 @@ class CrontabParserTest extends Test
 
         $jobs = $crontab1->getJobs();
 
-        $this->assertCount(
+        $I->assertCount(
             1,
             $jobs
         );
 
         $job = $jobs[0];
 
-        $this->assertEquals(
+        $I->assertEquals(
             "@hourly",
             $job->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh backup.sh",
             $job->getCommand()
         );
     }
 
-    public function testTwo()
+    public function two(UnitTester $I)
     {
         $crontab2 = new CrontabParser(
             __DIR__ . "/_support/crontabs/crontab2"
@@ -43,37 +42,37 @@ class CrontabParserTest extends Test
 
 
 
-        $this->assertCount(
+        $I->assertCount(
             2,
             $jobs
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "@hourly",
             $jobs[0]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh purge-cache.sh",
             $jobs[0]->getCommand()
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "* 0 * * *",
             $jobs[1]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh backup.sh",
             $jobs[1]->getCommand()
         );
     }
 
-    public function testThree()
+    public function three(UnitTester $I)
     {
         $crontab3 = new CrontabParser(
             __DIR__ . "/_support/crontabs/crontab3"
@@ -83,43 +82,43 @@ class CrontabParserTest extends Test
 
 
 
-        $this->assertCount(
+        $I->assertCount(
             3,
             $jobs
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "@hourly",
             $jobs[0]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh purge-cache.sh",
             $jobs[0]->getCommand()
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "* 0 * * *",
             $jobs[1]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh backup.sh",
             $jobs[1]->getCommand()
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "0,30 1-12 * mon,wed,fri *",
             $jobs[2]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "php something.php",
             $jobs[2]->getCommand()
         );

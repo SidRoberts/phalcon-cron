@@ -1,17 +1,18 @@
 <?php
 
-namespace Sid\Phalcon\Cron\Tests;
+namespace Tests;
 
-use Codeception\TestCase\Test;
 use Phalcon\Cli\Console;
 use Phalcon\Cli\Dispatcher;
+use Phalcon\Di;
 use Sid\Phalcon\Cron\Manager;
 use Sid\Phalcon\Cron\Job\Phalcon as PhalconJob;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
 use Sid\Phalcon\Cron\Job\Callback as CallbackJob;
 use Task\TaskTask;
+use Tests\UnitTester;
 
-class ManagerTest extends Test
+class ManagerCest
 {
     protected function getDi()
     {
@@ -66,9 +67,9 @@ class ManagerTest extends Test
 
 
 
-    public function testAddJobsToCron()
+    public function addJobsToCron(UnitTester $I)
     {
-        \Phalcon\Di::reset();
+        Di::reset();
 
         $di = $this->getDi();
 
@@ -79,21 +80,21 @@ class ManagerTest extends Test
         $cronJob1 = new PhalconJob("* * * * *", "task", "action", "params");
         $cronJob2 = new SystemJob("* * * * *", "echo 'hello world'");
 
-        $this->assertCount(
+        $I->assertCount(
             0,
             $cron->getDueJobs()
         );
 
         $cron->add($cronJob1);
 
-        $this->assertCount(
+        $I->assertCount(
             1,
             $cron->getDueJobs()
         );
 
         $cron->add($cronJob2);
 
-        $this->assertCount(
+        $I->assertCount(
             2,
             $cron->getDueJobs()
         );
@@ -101,7 +102,7 @@ class ManagerTest extends Test
 
 
 
-    public function testAddJobsFromCrontab()
+    public function addJobsFromCrontab(UnitTester $I)
     {
         $cron = new Manager();
 
@@ -113,31 +114,31 @@ class ManagerTest extends Test
 
 
 
-        $this->assertCount(
+        $I->assertCount(
             2,
             $jobs
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "@hourly",
             $jobs[0]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh purge-cache.sh",
             $jobs[0]->getCommand()
         );
 
 
 
-        $this->assertEquals(
+        $I->assertEquals(
             "* 0 * * *",
             $jobs[1]->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "sh backup.sh",
             $jobs[1]->getCommand()
         );

@@ -1,6 +1,12 @@
+namespace: Tests
+
 suites:
     unit:
         path: .
+        actor: UnitTester
+        modules:
+            enabled:
+                - Asserts
 
 settings:
     shuffle: true

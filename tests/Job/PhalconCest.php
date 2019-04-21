@@ -1,10 +1,11 @@
 <?php
 
-namespace Sid\Phalcon\Cron\Tests\Job;
+namespace Tests\Job;
 
-use Task\TaskTask;
+use Tests\Task\TaskTask;
+use Tests\UnitTester;
 
-class PhalconTest extends \Codeception\TestCase\Test
+class PhalconCest
 {
     protected function getDi()
     {
@@ -59,12 +60,7 @@ class PhalconTest extends \Codeception\TestCase\Test
 
 
 
-
-
-
-
-    // tests
-    public function testGetters()
+    public function getters(UnitTester $I)
     {
         $di = $this->getDi();
 
@@ -74,20 +70,19 @@ class PhalconTest extends \Codeception\TestCase\Test
 
         $jobs = $cron->getDueJobs();
 
-        $this->assertCount(
+        $I->assertCount(
             1,
             $jobs
         );
 
         $job = $jobs[0];
 
-        $this->assertEquals(
+        $I->assertEquals(
             "* * * * *",
             $job->getExpression()
         );
 
-        $this->assertEquals(
-            $job->getBody(),
+        $I->assertEquals(
             [
                 "task"   => TaskTask::class,
                 "action" => "action",
@@ -96,13 +91,14 @@ class PhalconTest extends \Codeception\TestCase\Test
                     "param2",
                     "param3",
                 ]
-            ]
+            ],
+            $job->getBody()
         );
     }
 
 
 
-    public function testRunningInForeground()
+    public function runningInForeground(UnitTester $I)
     {
         $di = $this->getDi();
 
@@ -112,7 +108,7 @@ class PhalconTest extends \Codeception\TestCase\Test
 
         $outputs = $cron->runInForeground();
 
-        $this->assertEquals(
+        $I->assertEquals(
             print_r(
                 [
                     "param1",

@@ -1,14 +1,14 @@
 <?php
 
-namespace Sid\Phalcon\Cron\Tests\Job;
+namespace Tests\Job;
 
-use Codeception\TestCase\Test;
 use Sid\Phalcon\Cron\Manager;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
+use Tests\UnitTester;
 
-class SystemTest extends Test
+class SystemCest
 {
-    public function testRunInForeground()
+    public function runInForeground(UnitTester $I)
     {
         $cronJob = new SystemJob(
             "* * * * *",
@@ -17,17 +17,17 @@ class SystemTest extends Test
 
         $output = $cronJob->runInForeground();
 
-        $this->assertEquals(
+        $I->assertEquals(
             "* * * * *",
             $cronJob->getExpression()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "echo 'hello world'",
             $cronJob->getCommand()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "hello world\n",
             $output
         );
@@ -35,7 +35,7 @@ class SystemTest extends Test
 
 
 
-    public function testSystemCronJobWithOutputToDevNull()
+    public function systemCronJobWithOutputToDevNull(UnitTester $I)
     {
         $systemCronJob = new SystemJob(
             "* * * * *",
@@ -43,13 +43,13 @@ class SystemTest extends Test
             "/dev/null"
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "",
             $systemCronJob->runInForeground()
         );
     }
 
-    public function testSystemCronJobWithOutputToFile()
+    public function systemCronJobWithOutputToFile(UnitTester $I)
     {
         $tmpName = tempnam(
             sys_get_temp_dir(),
@@ -64,7 +64,7 @@ class SystemTest extends Test
         
         $systemCronJob->runInForeground();
 
-        $this->assertEquals(
+        $I->assertEquals(
             "hello world\n",
             file_get_contents($tmpName)
         );
@@ -72,7 +72,7 @@ class SystemTest extends Test
     
     
     
-    public function testSystemCronJobsInForeground()
+    public function systemCronJobsInForeground(UnitTester $I)
     {
         $cron = new Manager();
         
@@ -95,7 +95,7 @@ class SystemTest extends Test
         $cron->add($systemCronJob2);
         $cron->add($systemCronJob3);
 
-        $this->assertEquals(
+        $I->assertEquals(
             [
                 "hello world 1\n",
                 "hello world 2\n",

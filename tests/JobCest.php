@@ -1,15 +1,15 @@
 <?php
 
-namespace Sid\Phalcon\Cron\Tests;
+namespace Tests;
 
-use Codeception\TestCase\Test;
 use DateTime;
 use Sid\Phalcon\Cron\Manager;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
+use Tests\UnitTester;
 
-class JobTest extends Test
+class JobCest
 {
-    public function testPredefinedExpressions()
+    public function predefinedExpressions(UnitTester $I)
     {
         $cron = new Manager();
 
@@ -31,7 +31,7 @@ class JobTest extends Test
         $day   = new DateTime("2015-01-02 00:00:00");
         $hour  = new DateTime("2015-01-01 15:00:00");
 
-        $this->assertEquals(
+        $I->assertEquals(
             [
                 "yearly\n",
                 "monthly\n",
@@ -41,7 +41,7 @@ class JobTest extends Test
             $cron->runInForeground($year)
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             [
                 "yearly\n",
                 "monthly\n",
@@ -51,7 +51,7 @@ class JobTest extends Test
             $cron->runInForeground($month)
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             [
                 "weekly\n",
                 "daily\n",
@@ -60,7 +60,7 @@ class JobTest extends Test
             $cron->runInForeground($week)
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             [
                 "daily\n",
                 "hourly\n",
@@ -68,7 +68,7 @@ class JobTest extends Test
             $cron->runInForeground($day)
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             [
                 "hourly\n",
             ],

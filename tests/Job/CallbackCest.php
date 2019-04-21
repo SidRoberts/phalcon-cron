@@ -1,10 +1,12 @@
 <?php
 
-namespace Sid\Phalcon\Cron\Tests\Job;
+namespace Tests\Job;
 
-class CallbackTest extends \Codeception\TestCase\Test
+use Tests\UnitTester;
+
+class CallbackCest
 {
-    public function testRunInForeground()
+    public function runInForeground(UnitTester $I)
     {
         $cronJob = new \Sid\Phalcon\Cron\Job\Callback(
             "* * * * *",
@@ -17,12 +19,12 @@ class CallbackTest extends \Codeception\TestCase\Test
 
 
 
-        $this->assertInternalType(
+        $I->assertInternalType(
             "callable",
             $cronJob->getCallback()
         );
 
-        $this->assertEquals(
+        $I->assertEquals(
             "hello world",
             $output
         );
