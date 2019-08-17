@@ -3,8 +3,6 @@ language: php
 php:
   - 7.1
 
-sudo: true
-
 env:
   - PHALCON_VERSION="v3.4.1"
 
