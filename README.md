@@ -1,5 +1,4 @@
-Sid\Phalcon\Cron
-================
+# `Sid\Phalcon\Cron`
 
 Cron component for Phalcon.
 
