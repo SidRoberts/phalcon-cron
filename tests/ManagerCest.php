@@ -5,12 +5,10 @@ namespace Tests;
 use Phalcon\Cli\Console;
 use Phalcon\Cli\Dispatcher;
 use Phalcon\Di;
-use Sid\Phalcon\Cron\Manager;
 use Sid\Phalcon\Cron\Job\Phalcon as PhalconJob;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
-use Sid\Phalcon\Cron\Job\Callback as CallbackJob;
-use Task\TaskTask;
-use Tests\UnitTester;
+use Sid\Phalcon\Cron\Manager;
+use Tests\Task\TaskTask;
 
 class ManagerCest
 {

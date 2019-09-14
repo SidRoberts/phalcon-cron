@@ -2,8 +2,8 @@
 
 namespace Tests\Job;
 
-use Sid\Phalcon\Cron\Manager;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
+use Sid\Phalcon\Cron\Manager;
 use Tests\UnitTester;
 
 class SystemCest

@@ -3,9 +3,8 @@
 namespace Tests;
 
 use DateTime;
-use Sid\Phalcon\Cron\Manager;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
-use Tests\UnitTester;
+use Sid\Phalcon\Cron\Manager;
 
 class JobCest
 {
