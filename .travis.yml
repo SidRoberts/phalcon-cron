@@ -3,6 +3,9 @@ language: php
 php:
   - 7.1
 
+os:   linux
+dist: xenial
+
 env:
   - PHALCON_VERSION="v3.4.1"
 
