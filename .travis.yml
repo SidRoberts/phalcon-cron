@@ -7,15 +7,14 @@ os:   linux
 dist: xenial
 
 env:
-  - PHALCON_VERSION="v3.4.1"
+  - PSR_VERSION="1.0.0" PHALCON_VERSION="4.0.5"
 
 git:
   depth: 1
 
 install:
-  - git clone --depth=1 -q --branch=${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git
-  - '(cd cphalcon/build; bash install &>/dev/null && phpenv config-add ../tests/_ci/phalcon.ini &> /dev/null && cd ../..;)'
-  - php --ri phalcon
+  - pecl install --force psr-$PSR_VERSION 1> /dev/null
+  - pecl install --force phalcon-$PSR_VERSION 1> /dev/null
   - travis_retry composer update --no-interaction --no-progress
 
 script:
