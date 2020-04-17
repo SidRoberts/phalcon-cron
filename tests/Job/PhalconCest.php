@@ -109,14 +109,7 @@ class PhalconCest
         $outputs = $cron->runInForeground();
 
         $I->assertEquals(
-            print_r(
-                [
-                    "param1",
-                    "param2",
-                    "param3",
-                ],
-                true
-            ),
+            "param1" . PHP_EOL . "param2" . PHP_EOL . "param3",
             $outputs[0]
         );
     }
