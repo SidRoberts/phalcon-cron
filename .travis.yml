@@ -7,7 +7,7 @@ php:
   - 7.4
 
 os:   linux
-dist: xenial
+dist: bionic
 
 env:
   - PSR_VERSION="1.0.0" PHALCON_VERSION="4.0.5"
