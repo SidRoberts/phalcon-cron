@@ -19,8 +19,7 @@ class CallbackCest
 
 
 
-        $I->assertInternalType(
-            "callable",
+        $I->assertIsCallable(
             $cronJob->getCallback()
         );
 
