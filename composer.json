@@ -33,8 +33,6 @@
         "codeception/codeception": "~4.0",
         "codeception/module-asserts": "~1.0",
 
-        "phpunit/php-code-coverage": "~6.0",
-
         "squizlabs/php_codesniffer": "~3.0"
     },
 
