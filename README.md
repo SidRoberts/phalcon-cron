@@ -11,6 +11,14 @@ Powered by [sidroberts/cron](https://github.com/SidRoberts/cron).
 
 
 
+## Version Requirements
+
+[![](https://img.shields.io/badge/Phalcon-%3E%3D%205.0.0-76C39B?style=for-the-badge)]()
+
+[![](https://img.shields.io/badge/PHP-%3E%3D%208.0.0-777BB3?style=for-the-badge)]()
+
+
+
 ## Documentation
 
 See the [Wiki](https://github.com/SidRoberts/phalcon-cron/wiki).
