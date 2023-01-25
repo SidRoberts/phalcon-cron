@@ -28,7 +28,7 @@ class System extends Job
 
 
 
-    public function getCommand() : string
+    public function getCommand(): string
     {
         return $this->command;
     }
@@ -43,7 +43,7 @@ class System extends Job
 
 
 
-    private function buildCommand() : string
+    private function buildCommand(): string
     {
         $command = $this->getCommand();
         $output  = $this->getOutput();

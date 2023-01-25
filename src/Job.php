@@ -22,14 +22,14 @@ abstract class Job extends Injectable implements \Sid\Cron\JobInterface
 
 
 
-    public function getExpression() : string
+    public function getExpression(): string
     {
         return $this->expression;
     }
 
 
 
-    public function isDue(DateTime $datetime = null) : bool
+    public function isDue(DateTime $datetime = null): bool
     {
         $cronExpression = new CronExpression(
             $this->getExpression()
@@ -52,7 +52,7 @@ abstract class Job extends Injectable implements \Sid\Cron\JobInterface
     /**
      * @throws Exception
      */
-    public function runInBackground() : Process
+    public function runInBackground(): Process
     {
         $processID = pcntl_fork();
 

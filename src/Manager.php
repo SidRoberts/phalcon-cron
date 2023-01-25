@@ -13,7 +13,7 @@ class Manager extends \Sid\Cron\Manager
 
 
 
-    public function addCrontab(string $filename)
+    public function addCrontab(string $filename): void
     {
         $crontab = new CrontabParser($filename);
 
@@ -29,7 +29,7 @@ class Manager extends \Sid\Cron\Manager
     /**
      * Run all due jobs in the foreground.
      */
-    public function runInForeground(DateTime $now = null) : array
+    public function runInForeground(DateTime $now = null): array
     {
         $jobs = $this->getDueJobs($now);
 
@@ -45,7 +45,7 @@ class Manager extends \Sid\Cron\Manager
     /**
      * Run all due jobs in the background.
      */
-    public function runInBackground(DateTime $now = null) : array
+    public function runInBackground(DateTime $now = null): array
     {
         $jobs = $this->getDueJobs($now);
 
@@ -61,7 +61,7 @@ class Manager extends \Sid\Cron\Manager
     /**
      * Wait for all jobs running in the background to finish.
      */
-    public function wait()
+    public function wait(): void
     {
         foreach ($this->processes as $process) {
             $process->wait();
@@ -73,7 +73,7 @@ class Manager extends \Sid\Cron\Manager
     /**
      * Terminate all jobs running in the background.
      */
-    public function terminate()
+    public function terminate(): void
     {
         foreach ($this->processes as $process) {
             $process->terminate();
@@ -83,7 +83,7 @@ class Manager extends \Sid\Cron\Manager
     /**
      * Kill all jobs running in the background.
      */
-    public function kill()
+    public function kill(): void
     {
         foreach ($this->processes as $process) {
             $process->kill();

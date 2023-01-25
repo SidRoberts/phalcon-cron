@@ -32,7 +32,7 @@ class Process
 
 
 
-    public function getProcessID() : int
+    public function getProcessID(): int
     {
         return $this->processID;
     }
@@ -43,7 +43,7 @@ class Process
      * Determine if this process is currently running. Defunct/zombie processes
      * are ignored.
      */
-    public function isRunning() : bool
+    public function isRunning(): bool
     {
         $result = shell_exec(
             sprintf(
@@ -62,7 +62,7 @@ class Process
     /**
      * Wait for the process to finish.
      */
-    public function wait()
+    public function wait(): void
     {
         pcntl_waitpid(
             $this->getProcessID(),
@@ -75,7 +75,7 @@ class Process
     /**
      * Terminate the process.
      */
-    public function terminate() : bool
+    public function terminate(): bool
     {
         return posix_kill(
             $this->getProcessID(),
@@ -86,7 +86,7 @@ class Process
     /**
      * Kill the process.
      */
-    public function kill() : bool
+    public function kill(): bool
     {
         return posix_kill(
             $this->getProcessID(),

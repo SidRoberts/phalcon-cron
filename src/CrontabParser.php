@@ -29,7 +29,7 @@ class CrontabParser
 
 
 
-    public function getJobs() : array
+    public function getJobs(): array
     {
         $contents = file_get_contents($this->filename);
 

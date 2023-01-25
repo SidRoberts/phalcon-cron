@@ -51,7 +51,7 @@ class Phalcon extends Job
 
 
 
-    public function runInForeground() : string
+    public function runInForeground(): string
     {
         $di = $this->getDI();
 
