@@ -1,0 +1,26 @@
+name: tests
+
+on: push
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.2', '7.3', '7.4']
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: phalcon4
+        tools: composer:v2
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+    - name: Run Codeception tests
+      run: vendor/bin/codecept run
+    - name: RUN PHP Code Sniffer
+      run: vendor/bin/phpcs src/ --standard=psr2
