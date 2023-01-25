@@ -9,7 +9,7 @@ use Tests\Support\UnitTester;
 
 class JobCest
 {
-    public function predefinedExpressions(UnitTester $I)
+    public function predefinedExpressions(UnitTester $I): void
     {
         $cron = new Manager();
 

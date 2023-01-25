@@ -8,7 +8,7 @@ use Tests\Support\UnitTester;
 
 class SystemCest
 {
-    public function runInForeground(UnitTester $I)
+    public function runInForeground(UnitTester $I): void
     {
         $cronJob = new SystemJob(
             "* * * * *",
@@ -35,7 +35,7 @@ class SystemCest
 
 
 
-    public function systemCronJobWithOutputToDevNull(UnitTester $I)
+    public function systemCronJobWithOutputToDevNull(UnitTester $I): void
     {
         $systemCronJob = new SystemJob(
             "* * * * *",
@@ -49,7 +49,7 @@ class SystemCest
         );
     }
 
-    public function systemCronJobWithOutputToFile(UnitTester $I)
+    public function systemCronJobWithOutputToFile(UnitTester $I): void
     {
         $tmpName = tempnam(
             sys_get_temp_dir(),
@@ -72,7 +72,7 @@ class SystemCest
     
     
     
-    public function systemCronJobsInForeground(UnitTester $I)
+    public function systemCronJobsInForeground(UnitTester $I): void
     {
         $cron = new Manager();
         

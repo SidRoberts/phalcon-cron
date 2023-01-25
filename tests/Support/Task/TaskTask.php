@@ -6,7 +6,7 @@ use Phalcon\Cli\Task;
 
 class TaskTask extends Task
 {
-    public function actionAction($param1, $param2, $param3)
+    public function actionAction($param1, $param2, $param3): void
     {
         sleep(1);
 

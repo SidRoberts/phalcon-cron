@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Phalcon\Cli\Console;
 use Phalcon\Cli\Dispatcher;
 use Phalcon\Di\Di;
+use Phalcon\Di\DiInterface;
 use Sid\Phalcon\Cron\Job\Phalcon as PhalconJob;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
 use Sid\Phalcon\Cron\Manager;
@@ -13,7 +14,7 @@ use Tests\Support\UnitTester;
 
 class ManagerCest
 {
-    protected function getDi()
+    protected function getDi(): DiInterface
     {
         $di = new \Phalcon\Di\FactoryDefault\Cli();
 
@@ -66,7 +67,7 @@ class ManagerCest
 
 
 
-    public function addJobsToCron(UnitTester $I)
+    public function addJobsToCron(UnitTester $I): void
     {
         Di::reset();
 
@@ -101,7 +102,7 @@ class ManagerCest
 
 
 
-    public function addJobsFromCrontab(UnitTester $I)
+    public function addJobsFromCrontab(UnitTester $I): void
     {
         $cron = new Manager();
 

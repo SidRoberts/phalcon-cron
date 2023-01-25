@@ -6,7 +6,7 @@ use Tests\Support\UnitTester;
 
 class CallbackCest
 {
-    public function runInForeground(UnitTester $I)
+    public function runInForeground(UnitTester $I): void
     {
         $cronJob = new \Sid\Phalcon\Cron\Job\Callback(
             "* * * * *",

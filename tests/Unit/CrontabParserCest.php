@@ -7,7 +7,7 @@ use Tests\Support\UnitTester;
 
 class CrontabParserCest
 {
-    public function one(UnitTester $I)
+    public function one(UnitTester $I): void
     {
         $crontab1 = new CrontabParser(
             codecept_data_dir() . "/crontabs/crontab1"
@@ -33,7 +33,7 @@ class CrontabParserCest
         );
     }
 
-    public function two(UnitTester $I)
+    public function two(UnitTester $I): void
     {
         $crontab2 = new CrontabParser(
             codecept_data_dir() . "/crontabs/crontab2"
@@ -73,7 +73,7 @@ class CrontabParserCest
         );
     }
 
-    public function three(UnitTester $I)
+    public function three(UnitTester $I): void
     {
         $crontab3 = new CrontabParser(
             codecept_data_dir() . "/crontabs/crontab3"

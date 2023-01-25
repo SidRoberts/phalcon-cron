@@ -2,12 +2,13 @@
 
 namespace Tests\Unit\Job;
 
+use Phalcon\Di\DiInterface;
 use Tests\Support\Task\TaskTask;
 use Tests\Support\UnitTester;
 
 class PhalconCest
 {
-    protected function getDi()
+    protected function getDi(): DiInterface
     {
         $di = new \Phalcon\Di\FactoryDefault\Cli();
 
@@ -60,7 +61,7 @@ class PhalconCest
 
 
 
-    public function getters(UnitTester $I)
+    public function getters(UnitTester $I): void
     {
         $di = $this->getDi();
 
@@ -98,7 +99,7 @@ class PhalconCest
 
 
 
-    public function runningInForeground(UnitTester $I)
+    public function runningInForeground(UnitTester $I): void
     {
         $di = $this->getDi();
 
