@@ -61,7 +61,7 @@ class SystemCest
             "echo 'hello world'",
             $tmpName
         );
-        
+
         $systemCronJob->runInForeground();
 
         $I->assertEquals(
@@ -69,13 +69,13 @@ class SystemCest
             file_get_contents($tmpName)
         );
     }
-    
-    
-    
+
+
+
     public function systemCronJobsInForeground(UnitTester $I): void
     {
         $cron = new Manager();
-        
+
         $systemCronJob1 = new SystemJob(
             "* * * * *",
             "echo 'hello world 1'"
