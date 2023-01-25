@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Task;
+namespace Tests\Support\Task;
 
 use Phalcon\Cli\Task;
 

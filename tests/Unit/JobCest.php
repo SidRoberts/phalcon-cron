@@ -1,10 +1,11 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
 use DateTime;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
 use Sid\Phalcon\Cron\Manager;
+use Tests\Support\UnitTester;
 
 class JobCest
 {

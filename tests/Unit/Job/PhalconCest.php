@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Job;
+namespace Tests\Unit\Job;
 
-use Tests\Task\TaskTask;
-use Tests\UnitTester;
+use Tests\Support\Task\TaskTask;
+use Tests\Support\UnitTester;
 
 class PhalconCest
 {

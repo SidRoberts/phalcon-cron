@@ -1,15 +1,16 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
 use Sid\Phalcon\Cron\CrontabParser;
+use Tests\Support\UnitTester;
 
 class CrontabParserCest
 {
     public function one(UnitTester $I)
     {
         $crontab1 = new CrontabParser(
-            __DIR__ . "/_support/crontabs/crontab1"
+            codecept_data_dir() . "/crontabs/crontab1"
         );
 
         $jobs = $crontab1->getJobs();
@@ -35,7 +36,7 @@ class CrontabParserCest
     public function two(UnitTester $I)
     {
         $crontab2 = new CrontabParser(
-            __DIR__ . "/_support/crontabs/crontab2"
+            codecept_data_dir() . "/crontabs/crontab2"
         );
 
         $jobs = $crontab2->getJobs();
@@ -75,7 +76,7 @@ class CrontabParserCest
     public function three(UnitTester $I)
     {
         $crontab3 = new CrontabParser(
-            __DIR__ . "/_support/crontabs/crontab3"
+            codecept_data_dir() . "/crontabs/crontab3"
         );
 
         $jobs = $crontab3->getJobs();

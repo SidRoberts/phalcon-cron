@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
 use Phalcon\Cli\Console;
 use Phalcon\Cli\Dispatcher;
@@ -8,7 +8,8 @@ use Phalcon\Di\Di;
 use Sid\Phalcon\Cron\Job\Phalcon as PhalconJob;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
 use Sid\Phalcon\Cron\Manager;
-use Tests\Task\TaskTask;
+use Tests\Support\Task\TaskTask;
+use Tests\Support\UnitTester;
 
 class ManagerCest
 {
@@ -105,7 +106,7 @@ class ManagerCest
         $cron = new Manager();
 
         $cron->addCrontab(
-            __DIR__ . "/_support/crontabs/crontab2"
+            codecept_data_dir() . "/crontabs/crontab2"
         );
 
         $jobs = $cron->getAllJobs();

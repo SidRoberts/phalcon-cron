@@ -1,25 +1,28 @@
 namespace: Tests
 
-suites:
-    unit:
-        path: .
-        actor: UnitTester
-        modules:
-            enabled:
-                - Asserts
-
-settings:
-    shuffle: true
-    lint: true
+support_namespace: Support
 
 paths:
-    tests: tests
-    output: tests/_output
-    support: tests/_support
-    data: tests
+  tests: tests
+  support: tests/Support
+  data: tests/Support/Data
+  output: tests/_output
+
+settings:
+  lint: true
+  shuffle: true
+
+suites:
+  unit:
+    path: Unit
+    actor: UnitTester
+
+modules:
+  enabled:
+    - Asserts
 
 coverage:
-    enabled: true
-    whitelist:
-        include:
-            - src/*
+  enabled: true
+  whitelist:
+    include:
+      - src/*

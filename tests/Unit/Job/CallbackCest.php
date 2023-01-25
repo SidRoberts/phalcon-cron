@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Job;
+namespace Tests\Unit\Job;
 
-use Tests\UnitTester;
+use Tests\Support\UnitTester;
 
 class CallbackCest
 {
