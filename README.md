@@ -3,7 +3,7 @@
 Cron component for Phalcon.
 Powered by [sidroberts/cron](https://github.com/SidRoberts/cron).
 
-[![Build Status](https://img.shields.io/travis/SidRoberts/phalcon-cron/1.0.x.svg?style=for-the-badge)](https://travis-ci.org/SidRoberts/phalcon-cron)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/SidRoberts/phalcon-cron/tests.yml?style=for-the-badge)](https://github.com/SidRoberts/phalcon-cron/actions)
 [![GitHub release](https://img.shields.io/github/release/SidRoberts/phalcon-cron.svg?style=for-the-badge)]()
 
 [![GitHub issues](https://img.shields.io/github/issues-raw/SidRoberts/phalcon-cron.svg?style=for-the-badge)](https://github.com/SidRoberts/phalcon-cron/issues)
