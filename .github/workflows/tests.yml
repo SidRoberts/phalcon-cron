@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.2', '7.3', '7.4']
+        php: ['8.0', '8.1']
     steps:
     - uses: actions/checkout@v2
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
-        extensions: phalcon4
+        extensions: phalcon5
         tools: composer:v2
     - name: Validate composer.json and composer.lock
       run: composer validate

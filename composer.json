@@ -22,11 +22,11 @@
 
 
     "require": {
-        "php": "~7.2",
+        "php": "~8.0",
 
-        "ext-phalcon": "~4.0",
+        "ext-phalcon": "~5.0",
 
-        "sidroberts/cron": "~2.0"
+        "sidroberts/cron": "~3.0"
     },
 
     "require-dev": {

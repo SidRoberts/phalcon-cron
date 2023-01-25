@@ -31,9 +31,13 @@ abstract class Job extends Injectable implements \Sid\Cron\JobInterface
 
     public function isDue(DateTime $datetime = null) : bool
     {
-        $cronExpression = CronExpression::factory(
+        $cronExpression = new CronExpression(
             $this->getExpression()
         );
+
+        if (!$datetime) {
+            $datetime = new DateTime();
+        }
 
         return $cronExpression->isDue($datetime);
     }
