@@ -8,10 +8,7 @@ use Phalcon\Di\Injectable;
 
 abstract class Job extends Injectable implements \Sid\Cron\JobInterface
 {
-    /**
-     * @var string
-     */
-    protected $expression;
+    protected string $expression;
 
 
 

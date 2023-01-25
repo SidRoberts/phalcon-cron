@@ -6,15 +6,9 @@ use Sid\Phalcon\Cron\Job;
 
 class System extends Job
 {
-    /**
-     * @var string
-     */
-    protected $command;
+    protected string $command;
 
-    /**
-     * @var string
-     */
-    protected $output;
+    protected ?string $output;
 
 
 
@@ -33,10 +27,7 @@ class System extends Job
         return $this->command;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getOutput()
+    public function getOutput(): ?string
     {
         return $this->output;
     }

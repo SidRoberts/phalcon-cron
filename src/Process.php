@@ -9,10 +9,7 @@ namespace Sid\Phalcon\Cron;
  */
 class Process
 {
-    /**
-     * @var int
-     */
-    protected $processID;
+    protected int $processID;
 
 
 

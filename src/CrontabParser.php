@@ -6,10 +6,7 @@ use Sid\Phalcon\Cron\Job\System as SystemJob;
 
 class CrontabParser
 {
-    /**
-     * @var string
-     */
-    protected $filename;
+    protected string $filename;
 
 
 
