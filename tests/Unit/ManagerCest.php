@@ -9,8 +9,8 @@ use Phalcon\Di\DiInterface;
 use Sid\Phalcon\Cron\Job\Phalcon as PhalconJob;
 use Sid\Phalcon\Cron\Job\System as SystemJob;
 use Sid\Phalcon\Cron\Manager;
-use Tests\Support\Task\TaskTask;
-use Tests\Support\UnitTester;
+use Tests\Task\TaskTask;
+use Tests\UnitTester;
 
 class ManagerCest
 {

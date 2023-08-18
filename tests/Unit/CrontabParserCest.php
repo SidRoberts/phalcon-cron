@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Sid\Phalcon\Cron\CrontabParser;
-use Tests\Support\UnitTester;
+use Tests\UnitTester;
 
 class CrontabParserCest
 {

@@ -1,21 +1,19 @@
 namespace: Tests
 
-support_namespace: Support
-
-paths:
-  tests: tests
-  support: tests/Support
-  data: tests/Support/Data
-  output: tests/_output
+suites:
+  unit:
+    path: Unit
+    actor: UnitTester
 
 settings:
   lint: true
   shuffle: true
 
-suites:
-  unit:
-    path: Unit
-    actor: UnitTester
+paths:
+    tests: tests
+    output: tests/_output
+    support: tests/_support
+    data: tests/_data
 
 modules:
   enabled:

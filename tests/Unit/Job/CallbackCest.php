@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Job;
 
-use Tests\Support\UnitTester;
+use Tests\UnitTester;
 
 class CallbackCest
 {

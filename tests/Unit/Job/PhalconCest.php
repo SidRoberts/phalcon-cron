@@ -3,8 +3,8 @@
 namespace Tests\Unit\Job;
 
 use Phalcon\Di\DiInterface;
-use Tests\Support\Task\TaskTask;
-use Tests\Support\UnitTester;
+use Tests\Task\TaskTask;
+use Tests\UnitTester;
 
 class PhalconCest
 {
