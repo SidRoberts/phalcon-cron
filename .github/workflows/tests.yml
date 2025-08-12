@@ -22,5 +22,5 @@ jobs:
       run: composer install --prefer-dist --no-progress
     - name: Run Codeception tests
       run: vendor/bin/codecept run
-    - name: RUN PHP Code Sniffer
+    - name: Run PHP Code Sniffer
       run: vendor/bin/phpcs src/ --standard=psr2
